@@ -1,0 +1,88 @@
+{
+  "items": [
+    {
+      "path": "inputs/cases/low/physical_configuration.json",
+      "category": "geometry/ink/numerical configuration",
+      "sha256": "a420c632af8baee3479a6a52dd44294f1ce51169f9579d3e1adb4ad6e351dfc4",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/low/charge_parameters.json",
+      "category": "charging/electronics calibration",
+      "sha256": "b10052ac78bb28d0b7e97fa0d965248c4dc8498ff782fe84c1a72b0b96672058",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/low/printer_commands.csv",
+      "category": "controller commands",
+      "sha256": "6a7846fd91671057c36b8a23d3347a20f5b49ce46386f864363bc25e1d414553",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/low/charge_lookup.json",
+      "category": "dependency representation",
+      "sha256": "50937a48518ebd0aeffe213ddcde0b8a48527847cd4abacfc07d9696177f6022",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/low/measured_coordinates.csv",
+      "category": "experimental coordinate data",
+      "sha256": "e8f384afbfb78c1e42de816801205a316b8ba30b2bbbede81ca7f1c7efebba1e",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/low/simulated_coordinates.csv",
+      "category": "matched native simulation coordinates",
+      "sha256": "583e2528bbcce4a91ae709a02db7115198da011517428867d25e5e3bd304760f",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/high/physical_configuration.json",
+      "category": "geometry/ink/numerical configuration",
+      "sha256": "e2e991627ad654dee5d60588026a7bcbad9041e7f1469a9ed3da20038b6322e1",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/high/charge_parameters.json",
+      "category": "charging/electronics calibration",
+      "sha256": "e4c351097cfe5a3d8197df806019943111a0908ceeb0cfe8ecf1e7366d1f3e09",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/high/printer_commands.csv",
+      "category": "controller commands",
+      "sha256": "7500e56b14f8ba2f13d5234aa53765ddc70d26b40569e53e955edde69381f10f",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/high/charge_lookup.json",
+      "category": "dependency representation",
+      "sha256": "e9ebf3f2c8ffd01fbd7c0a998d7135e35cdcba4952bfe513bfa1bb6ea2386d64",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/high/measured_coordinates.csv",
+      "category": "experimental coordinate data",
+      "sha256": "f4a9e83379cb4efde5e72d46bcec03ad76ba52589d6de44ed8911031890aff8a",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/high/simulated_coordinates.csv",
+      "category": "matched native simulation coordinates",
+      "sha256": "08870055b4e8b3a1677b00306c754471d3822f9068544895dd35846aad707079",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/electric_field.npz",
+      "category": "industrial device field/geometry representation",
+      "sha256": "4772e6c960e091cd1723e6b740db9776313b08c66b521f3a0e1483885d4c832f",
+      "included_in_manuscript_source_package": false
+    },
+    {
+      "path": "inputs/cases/high/history/measurements_3b10aefbb5d1.csv",
+      "category": "superseded experimental coordinates",
+      "sha256": "3b10aefbb5d1df930e8e98d5ea4885b52d4695a3148f432fd92910009bbc4ba2",
+      "included_in_manuscript_source_package": false
+    }
+  ]
+}

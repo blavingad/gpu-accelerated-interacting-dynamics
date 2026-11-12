@@ -1,0 +1,8 @@
+{
+  "realized_charge_sha256": "565a723be1c4cefded0503d927313bdd6e399908a64a552946837b0771ba8c2d",
+  "changed_fields": [
+    "coulomb_interaction_enabled",
+    "wake_initial_velocity_deficit_factor"
+  ],
+  "commands_unchanged": true
+}

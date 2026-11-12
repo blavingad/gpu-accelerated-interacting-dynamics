@@ -1,0 +1,77 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[american]{babel}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable,graphicx}
+\newtheorem{proposition}{Proposition}
+\usepackage{microtype}
+\usepackage{caption}
+\captionsetup[table]{position=top,skip=10pt}
+\renewcommand{\arraystretch}{1.15}
+\usepackage{xcolor}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xurl}
+\definecolor{PaperBlue}{HTML}{21658A}
+\usepackage[colorlinks=true,linkcolor=PaperBlue,citecolor=PaperBlue,urlcolor=PaperBlue]{hyperref}
+\setlength{\textfloatsep}{24pt plus 4pt minus 2pt}
+\setlength{\intextsep}{22pt plus 4pt minus 2pt}
+\usepackage{enumitem}
+\setlist{itemsep=3pt,topsep=5pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ind}{\mathbb{I}}
+\newcommand{\um}{\,\mu\mathrm{m}}
+\title{GPU-Accelerated Simulation and Inverse Design of Interacting Dynamical Systems: Application to Continuous Inkjet Raster Development}
+\author{Matteo Trapasso}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+This work proposes an end-to-end digital workflow for developing continuous inkjet rasters from scratch. Given a printhead field, droplet and electronics parameters, a target font and print geometry, speed and resolution requirements, the workflow constructs a context domain, searches emission structures, fits interacting-flight commands and realizes shared integer controller tables. A precomputed device field is reused while charging state, Coulomb forces, wakes and droplet events are recomputed for each candidate. The contribution is the integration of domain coverage and controller realization into the inverse-design process. Two application cases assess 644 ordered contexts each and compare fixed simulation predictions with image-derived positions averaged over ten repeated A--Z prints per raster. Directional RMSE is @@DEFLECTION_RANGE@@ micrometers in deflection and @@HORIZONTAL_RANGE@@ micrometers along substrate motion. Fixed-command ablations quantify sensitivity to omitted interaction terms; shared-force Euler--RK4 comparisons assess numerical sensitivity. A matched batch of 64 endpoint evaluations achieves a @@GPU_SPEEDUP@@-fold warmed GPU speedup over CPU execution on the tested workstation. The results demonstrate a computational-to-printer workflow at the reported operating points, with explicit context, numerical and experimental boundaries.
+\end{abstract}
+
+\section{Introduction}
+A continuous inkjet raster assigns charged droplets to geometric rows while the substrate moves. Its firing order, guard placement, charging waveform and interaction-dependent commands jointly determine placement, throughput and clearance. The proposed workflow starts from printer inputs and print requirements and ends with a new structure and one realizable controller table across the intended print patterns.
+
+Physical rigs provide direct characterization and printer qualification. The computational task addressed here is the repeated inner design loop: evaluating candidate structures and commands over an explicit print domain before deployment. Reusing a geometry-dependent field and recomputing the changing droplet interactions makes this loop suitable for compiled, batched particle simulation.
+
+Simulation-assisted CIJ charging optimization and breakup-charge modeling are established \citep{sato2022,sturma2023}. Fully coupled fluid--particle models can also include electric fields and direct pair forces. The present method selects a reduced decomposition for repeated design evaluation: imposed electrostatics are reused, while history-dependent charging, Coulomb forces and directed aerodynamic wakes are evaluated for each candidate. This is a fidelity and computational-cost choice, not a claim that coupled CFD cannot represent those interactions.
+
+GPU particle execution is also established in packages such as HOOMD-blue \citep{anderson2019}. The development requirement addressed here is to connect interacting-flight optimization to finite controller addresses and explicit occupancy/history coverage.
+
+\subsection{Methodological contribution}
+The central proposal is a full digital design process, from requirements to controller export, with three outputs:
+\begin{enumerate}
+\item \textbf{A declared design domain.} Font masks, boundary spacing and preceding/current history define the contexts that the controller must handle. Coverage is checked against that finite set.
+\item \textbf{A realizable inverse-design result.} Isolated references, coupled fitting and bounded structural search produce shared command entries. Complete waveform evaluation and integer-command replay test the exported representation.
+\item \textbf{An assessed deployment package.} Fixed commands, simulator predictions, coverage records and deposited-coordinate comparisons remain linked through versioned inputs and results.
+\end{enumerate}
+The individual force laws, numerical integrators and optimization ingredients are established tools. The methodological advance is their integration around font-domain coverage and controller realization, followed by computational-to-printer assessment. The two cases exercise the workflow in complementary ways: the predefined structure tests dependency creation, while the new-structure case develops firing order and dependencies together within its stated search domain. Full digital development is the proposed process; the demonstrated coverage is the finite set of configurations and contexts reported here.
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{figures/digital_development_workflow.pdf}\caption{Digital raster development from requirements to a new structure, shared dependencies and controller export. Physical printing supplies the final qualification.}\label{fig:digital_process}\end{figure}
+
+\subsection{Industrial objective and evidence}
+The intended industrial use is to develop a new raster computationally before loading its controller table onto a printer. Physical characterization supplies model inputs, the digital loop develops the raster, and final printing qualifies the result. This study reports candidate evaluation, numerical sensitivity, execution cost and deposited-position agreement. Engineering-hours, rig occupancy and consumable savings are not measured here; final printer qualification remains part of the development process.
+
+The CPU/GPU comparison evaluates the same particle model and workload. It supplies evidence about execution efficiency, not a measured speedup over a coupled CFD solver or an experimental rig. Generalization of the formulation to other interacting systems requires new fields, actuation constraints and closure assessment; the numerical and experimental results reported here concern CIJ.
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{figures/methodology_overview.pdf}\caption{Reusable device information is separated from candidate-dependent particle dynamics and control optimization.}\label{fig:framework}\end{figure}
+
+\paragraph{Organization.}
+Section~\ref{sec:results} presents results first. The subsequent sections specify the computational framework, physical model, numerical implementation and inverse-design workflow. The discussion states the tested scope and deployment implications. Appendices retain the scheduling, quantization and controller definitions used to interpret the implemented procedure.
+
+\input{sections/results}
+\input{sections/general_framework}
+\input{sections/physics}
+\input{sections/numerical_implementation}
+\input{sections/methodology}
+\input{sections/discussion}
+\input{sections/conclusion}
+\input{references}
+\appendix
+\input{sections/analytical_appendix}
+\input{sections/appendix}
+\end{document}

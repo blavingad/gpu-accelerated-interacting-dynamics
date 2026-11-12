@@ -1,0 +1,19 @@
+{
+  "paths": {
+    "results/evidence_v2": "results/numerical",
+    "results/experimental_assessment_v4": "results/experimental",
+    "docs/reproducibility_v2": "docs/parameters",
+    "docs/verification.json": "docs/provenance/initial_checks.json",
+    "docs/verification_v2.json": "docs/checks.json",
+    "docs/EVIDENCE_V2.md": "docs/NUMERICS.md",
+    "docs/source_manifest.json": "docs/provenance/sources.json",
+    "docs/file_manifest.json": "docs/provenance/initial_files.json",
+    "docs/experimental_provenance_clarification.json": "docs/experimental_protocol.json",
+    "workflows/publish_evidence_v2.py": "workflows/build_manuscript.py",
+    "workflows/run_paper_evidence_v2.py": "workflows/run_studies.py",
+    "workflows/update_experimental_assessment.py": "workflows/update_measurements.py",
+    "workflows/gather_reproducibility.py": "workflows/describe_inputs.py",
+    "inputs/cases/high/history/measured_coordinates_before_v4.csv": "inputs/cases/high/history/measurements_3b10aefbb5d1.csv",
+    "docs/reproducibility_v2/AUDIT.md": "docs/parameters/README.md"
+  }
+}

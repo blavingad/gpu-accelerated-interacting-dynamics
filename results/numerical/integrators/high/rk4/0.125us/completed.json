@@ -1,0 +1,19 @@
+{
+  "case": "high",
+  "method": "rk4",
+  "dt_us": 0.125,
+  "contexts": 4,
+  "prepare_s": 0.12607151828706264,
+  "compile_lowering_s": 1.5777391074225307,
+  "first_execution_s": 46.568695914931595,
+  "transfer_s": 0.001597777009010315,
+  "particle_dtype": "float32",
+  "output_bytes": 70544,
+  "timing_scope": "Single synchronized execution after explicit compilation; not a warmed throughput benchmark",
+  "native_steps_executed": [
+    29869,
+    31112,
+    31126,
+    31047
+  ]
+}

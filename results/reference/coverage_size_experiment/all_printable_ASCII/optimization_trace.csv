@@ -1,0 +1,3 @@
+epoch,scale,accepted,cost,baseline_cost,contexts,missing,merged
+0,1.0,True,9.342285728807078e-06,0.004086910907740591,644,0,0
+1,1.0,True,3.7268298844472872e-06,9.342285728807078e-06,644,0,0

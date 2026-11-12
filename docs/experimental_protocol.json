@@ -1,0 +1,14 @@
+{
+  "source": "Experimental protocol supplied by Matteo Trapasso, 2026-11-11",
+  "supersedes": "Earlier separate-glyph acquisition interpretation",
+  "rasters": 2,
+  "repeated_full_A_to_Z_prints_per_raster": 10,
+  "measurement_method": "Image-based dot localization; analysis performed by the experimental team",
+  "provided_data": "Mean corresponding dot coordinates over ten measurements for each raster",
+  "individual_replicates_in_repository": false,
+  "variance_estimates_in_repository": false,
+  "coordinate_values_changed": true,
+  "existing_RMSE_interpretation": "Simulation versus experimental ten-print mean; not single-print error or repeatability",
+  "changed_case": "high-speed Linear 16 only",
+  "current_assessment": "inputs/experimental_assessment.json"
+}

@@ -1,0 +1,60 @@
+\subsection{Digital-development coverage and computational evidence}\label{sec:framework_evidence}
+
+The development object is an ordered pair of preceding and current stroke masks, $c=(\vect b^{-},\vect b)$. The required pool $\mathcal C_{\rm req}$ is generated from the declared font, stroke-boundary convention, and baseline cases. For each context, the preceding and current emissions are integrated together, preserving waveform state and particle interactions. Older history is blank and no following stroke is emitted. A rendered message selects the matching ordered context, while the deployed controller selects the corresponding shared lookup address. Local dependency bits specify the control representation; they do not truncate the pair forces in the forward model.
+
+The operating domain is defined before its dependency table. First, specify what must be printed: uppercase A--Z, lowercase a--z, digits 0--9, and the declared punctuation and symbols. Second, enumerate their stroke masks and ordered preceding/current-stroke contexts under the stated boundary convention, adding the isolated and full-stroke baselines. Third, select the dependency labels and bit ordering, project each required context to a controller address, and fit shared commands on that domain. Thus the context pool is derived from the print requirement and history model; the dependency representation is built to serve that pool.
+
+For this declared printable-character set there are 95 glyphs and 224 distinct nonblank font columns. Including the isolated and complete-stroke references gives 235 distinct current-only cases. Introducing the prescribed preceding-stroke contexts yields 644 ordered cases, \emph{including} those 235, rather than adding another 644 to them. The number 644 is specific to this font and finite-history construction, not a universal inkjet constant or the Cartesian product of all binary masks. This is exhaustive coverage of the declared finite operating pool, not of arbitrary text streams, all binary masks, continuous parameter ranges, or all possible structures. The pool determines which shared control entries must be fitted and checked. Unobserved binary lookup addresses remain outside the characterized domain.
+
+For a proposed table, evaluation coverage and acceptance coverage are distinct:
+\begin{equation}
+ C_{\rm eval}=\frac{|\mathcal C_{\rm evaluated}\cap\mathcal C_{\rm req}|}{|\mathcal C_{\rm req}|},\qquad
+ C_{\rm acc}=\frac{|\{c\in\mathcal C_{\rm req}: c\text{ evaluated and accepted}\}|}{|\mathcal C_{\rm req}|}.
+\end{equation}
+Table~\ref{tab:pool_evidence} reports unchanged deployed integer-command tables evaluated on the full pool at 75 kHz. The declared placement policy is a context vertical RMS no greater than $66.45\um$, a maximum vertical dot error no greater than $132.9\um$, minimum gutter deflection $500\um$, and no missing or merged current targets under the specified event mask. A stricter $10\um$ RMS/$25\um$ maximum diagnostic is also reported. Acceptance depends on this explicit engineering policy and is not a universal print-quality criterion. All errors in this table are computational errors against geometric targets, not errors against measurements.
+
+\begin{table}[htbp]\centering\small\caption{Complete ordered-context pool assessment. Errors are vertical micrometers; Strict uses the tighter diagnostic policy.}\label{tab:pool_evidence}\begin{tabular}{lrrrrr}\toprule Case & Evaluated & Accepted & Strict & Worst RMS & Max. error\\\midrule
+
+Low speed & 644 & 644 & 558 & 14.29 & 22.22 \\
+
+High speed & 644 & 644 & 207 & 55.75 & 122.45 \\
+
+\bottomrule\end{tabular}\end{table}
+
+The complete low- and high-speed assessments took 173.8 and 69.7 seconds, respectively, on an NVIDIA RTX A5000, with compilation reported separately. Both have zero missing or merged current targets. The different structures and native particle-property records make these workload timings, not a controlled causal comparison of structure alone.
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{figures/framework_throughput_coverage.pdf}\caption{Warmed execution throughput and complete-pool evaluation coverage. The acceptance count coincides with the evaluation count for these two tables under the declared policy.}\end{figure}
+
+A current matched batch of 64 low-speed contexts takes 15.66 seconds on the NVIDIA RTX A5000 and 81.45 seconds on the Intel Core i9-14900K CPU, a 5.20-fold warmed execution speedup on this workstation. Compilation/lowering, first execution, warmed execution, transfer and output retention are recorded separately. Particle state is float32 and waveform preparation uses NumPy float64. Two synchronized warm executions are retained; this is a workstation-specific workload result, not a confidence interval or a universal accelerator advantage. The workstation was not reserved exclusively, and background processes and accelerator memory occupancy were not controlled.
+
+\begin{table}[htbp]\centering\small\caption{Consolidated execution evidence. Current rows use the revised executable; archived dense-recording rows retain their original source hash and output contract. Times are seconds.}\label{tab:benchmarks}\begin{tabular}{llrrr}\toprule Workload & Backend & Batch & Compile & Warm median\\\midrule
+Industrial endpoints & CPU & 64 & 0.68 & 81.45 \\
+Industrial endpoints & GPU & 64 & 1.00 & 15.66 \\
+Synthetic endpoints & CPU & 64 & 0.43 & 20.17 \\
+Synthetic endpoints & GPU & 64 & 0.68 & 4.38 \\
+Archived dense recording & CPU & 1 & 0.60 & 13.59 \\
+Archived dense recording & GPU & 1 & 1.00 & 25.37 \\
+\bottomrule\end{tabular}\end{table}
+The fully specified synthetic benchmark contains 32 spheres of diameter 132 micrometers and density 905 kg/m$^3$, emitted at 75 kHz with initial axial speed 24 m/s. It uses $E_X=-300000$ V/m, independently seeded charge magnitudes uniform on 0.5--1.5 pC (seed 20261111), $h=1$ microsecond and a 4 ms maximum window, with Coulomb and wake/drag terms enabled and coalescence disabled; it contains no industrial font, field or command table. It provides an independently reproducible computational workload, not another physical-validation case. Complete settings, precision, batch shapes, hardware and synchronized timing records are preserved. Application-specific settings are recorded with the reproduction inputs. The archived single-case dense-recording workload returns approximately 1.18 GB and is slower on GPU than CPU, delimiting the acceleration regime. Current matched endpoints and historical dense recording are not compared as identical workloads. The throughput illustration above is retained as the historical reference; the table reports the current rerun.
+
+\paragraph{Effect of development-set coverage.} A controlled coverage-size experiment starts all three fits from the same isolated-flight seed, uses ideal targets and the same bounded update rule and maximum refit passes, and then freezes each table for evaluation on all 644 contexts. The development sets use one glyph, three glyphs, or the complete declared character set. Larger sets cost more; this is not an equal-total-budget optimizer comparison or a new fully converged design campaign. Updates in this intervention are continuous-valued DAC commands; these newly fitted tables have not undergone integer export or printer testing and are separate from the unchanged deployed tables above.
+
+\begin{table}[htbp]\centering\small\caption{Development-set coverage experiment; all frozen tables assessed on the complete pool.}\begin{tabular}{lrrrrr}\toprule Development set & Contexts & Keys (\%) & Accepted & Max. error & Fit (s)\\\midrule
+
+digit 9 & 29 & 14.3 & 563 & 145.2 & 63.7 \\
+
+three glyphs AMO & 53 & 16.7 & 564 & 143.8 & 63.8 \\
+
+all printable ASCII & 644 & 100.0 & 644 & 10.5 & 703.6 \\
+
+\bottomrule\end{tabular}\end{table}
+
+Maximum errors in the intervention table are vertical micrometers. Fit times exclude the common isolated-seed construction and the subsequent frozen full-pool assessment. Unseen entries retain the isolated-row seed rather than receiving a nearest-neighbor or full-font optimized answer. These results characterize this seed and bounded fitting budget; they do not establish a universal relationship between font-set size and final achievable accuracy. Complete-pool fitting and assessment are verification of the intended design domain, not an unseen-context generalization test. The physical assessment instead replays frozen commands without fitting them to the measured coordinates.
+
+\paragraph{Bounded structural exploration.} A separate archived search screened one million surrogate candidates, retained 15,600 unique candidates and selected 512 structures for coupled assessment. The archive contains 3,321 physical-model evaluations, including perturbations and refinements, rather than 3,321 distinct structures. This campaign used a different operating cohort from the two native-75-kHz assessment cases. It demonstrates a staged exploration procedure; it neither exhausts the structural design space nor proves a global optimum. No speedup against an experimental rig or competing search algorithm is inferred from these counts.
+
+\paragraph{Relation to prior optimization studies.} Sato et al.\ report simulation-assisted charging optimization, a five-by-five digit-nine example, printer assessment and a reduction to one seventh of the simulation evaluations used by their MOGA comparator \citep{sato2022}. That reported evaluation-count reduction is not a wall-clock benchmark and is not directly comparable to the CPU/GPU ratio here. Our emphasis is the declared font/history pool, shared controller-table realization and traceable progression from structural screening to complete-pool assessment. We do not infer that their method could not address a larger pool.
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{figures/framework_coverage_intervention.pdf}\caption{Coverage-size intervention from a common isolated-flight seed. All final tables are evaluated on the full pool. Equal refit passes do not imply equal computation time.}\end{figure}
+
+\begin{figure}[htbp]\centering\includegraphics[width=.8\linewidth]{figures/framework_structure_exploration.pdf}\caption{Archived coupled evaluations with valid endpoints, including perturbations and refinements. Endpoint validity alone does not establish all placement and clearance constraints. This separate cohort is not the native-75-kHz experimental assessment.}\end{figure}

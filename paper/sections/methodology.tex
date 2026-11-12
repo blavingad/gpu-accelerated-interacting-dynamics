@@ -1,0 +1,170 @@
+\section{Digital raster development from scratch}
+The workflow takes a device field, droplet and electronics parameters, a font, row targets, substrate speed and requested horizontal resolution. It returns a candidate emission structure, shared commands, dependency addresses and an exported controller table, together with coverage and replay diagnostics. The sequence is: determine the cycle budget; establish isolated-flight references; search candidate structures while fitting coupled commands; characterize the required occupancy/history contexts; fit shared dependencies; and replay the integer table. These design stages are computational. Printer assessment qualifies the exported result.
+
+\subsection{Design variables and target geometry}
+A logical raster contains $N$ possible landing rows. A physical sequence of $M$ emitted cycles is
+\begin{equation}
+ \mathcal S=(s_0,\ldots,s_{M-1}),\quad s_k\in\{\mathrm{guard},1,\ldots,N\},
+\end{equation}
+with each logical row occurring once. Equivalently, define a firing permutation $\pi$, and nonnegative integers $\vect g=(g_0,\ldots,g_N)$ for guards before, between, and after the printed positions. Then $M=N+\sum_jg_j$. The slot of row $i$ is $k_i\in\{0,\ldots,M-1\}$. ``Linear'' means that the logical row labels increase in firing order; ``nonlinear'' means a nonidentity permutation. Neither term specifies the chronological order of arrival, which is obtained only after flight simulation.
+
+For a stroke mask $b\in\{0,1\}^N$, row $i$ is requested when $b_i=1$. Every nominal cycle still emits a droplet when its row is absent; it becomes a nonprinting cycle in the waveform. An optimized net-charge lookup is $q_i=\Theta_i(a_i)$, where $a_i$ is a selected dependency address. A realizable controller instead issues $D_i=\mathcal T_i(a_i)$, followed by the history-dependent charging model. These two tables are not interchangeable.
+
+The deflection targets are
+\begin{equation}
+ X_i^*=X_1^*+(i-1)p,\qquad H^*=(N-1)p+d_{\mathrm{dot}}.
+\label{eq:target}
+\end{equation}
+The deposited diameter $d_{\mathrm{dot}}$ is an observation/printing parameter, distinct from the airborne diameter $d_d$. Choosing $p=d_{\mathrm{dot}}$ gives a nominal touching-dot column and $H^*=Nd_{\mathrm{dot}}$. Enlarging the deposited footprint at fixed pitch changes edge-to-edge height by the change in one diameter, not by $N$ times that change. Therefore the pitch and footprint must be stored separately.
+
+Absolute vertical registration is retained: no independent vertical shift is fitted to each pattern. The target origin $X_1^*$ is a design requirement constrained by the available field and clearance, not a free plotting adjustment used to conceal errors.
+
+\subsection{Throughput is a preliminary calculation, not a quality test}
+For horizontal resolution $D_h$ in dots per inch and substrate speed $v_s$ in m/s, the nominal column pitch and period are
+\begin{equation}
+ p_h=\frac{0.0254}{D_h},\quad T_{\mathrm{col}}=\frac{p_h}{v_s},\quad
+ B=fT_{\mathrm{col}},\quad B_{\mathrm{whole}}=\lfloor B\rfloor.
+\label{eq:budget}
+\end{equation}
+A conservative fixed-period sequence requires $M\leq B_{\mathrm{whole}}$; its cycle-limited speed is
+\begin{equation}
+ v_{\max}=\frac{0.0254f}{D_h M}.
+\label{eq:speed}
+\end{equation}
+This is a necessary scheduling condition. It is not a sufficient condition for upright strokes, no coalescence, or clearance. A noninteger budget may be handled by a documented controller phase accumulator or an appropriate floor/ceiling schedule, but that policy cannot be assumed implicitly.
+
+At fixed resolution, frequency and substrate speed, the budget constrains the total cycle count but does not uniquely determine firing order or guard placement. Even when the cycle budget leaves no room for guards, the row-to-slot assignment remains a discrete inverse-design problem with up to $N!$ permutations.
+
+
+
+Flight time must \emph{not} simply be added to each column's emission duration to reduce steady-state throughput: multiple columns can be in flight simultaneously. Longer flight time instead affects horizontal placement, the number of active droplets, and the history horizon needed in the interacting simulation.
+
+\subsubsection{Arrival-time-aware horizontal placement}
+For column start $t_c$ and droplet flight time $\tau_i$, the arrival time is
+\begin{equation}
+ t_i^{\mathrm{arr}}=t_c+k_i/f+\tau_i.
+\end{equation}
+A laboratory landing coordinate $Y_i^{\mathrm{lab}}$ becomes
+\begin{equation}
+ Y_i^{\mathrm{paper}}=Y_i^{\mathrm{lab}}-v_s(t_c+k_i/f+\tau_i).
+\label{eq:paper}
+\end{equation}
+Consequently,
+\begin{equation}
+ \Delta Y_{ij}=Y_i^{\mathrm{lab}}-Y_j^{\mathrm{lab}}
+ -v_s\left[(k_i-k_j)/f+(\tau_i-\tau_j)\right].
+\end{equation}
+Different charges can change both $Y_i^{\mathrm{lab}}$ and $\tau_i$; equal flight times must not be assumed. Define a one-column center span
+\begin{equation}
+ W=\max_iY_i^{\mathrm{paper}}-\min_iY_i^{\mathrm{paper}}.
+\end{equation}
+Its RMS counterpart is measured relative to one common phase. Report tilt and residual zigzag separately; neither is subtracted from the primary horizontal error to make the print appear straighter.
+
+For isolated reference flights, let $\eta_i=\tau_i-Y_i^{\mathrm{lab}}/v_s$. Then minimizing centered squared horizontal error reduces to assigning $\eta_i$ to increasing slot times. For a no-guard equal-spacing schedule, sorting $\eta_i$ in descending order is an RMS-optimal assignment \emph{for those fixed isolated values}, by the rearrangement inequality. It is only a seed for the interacting problem because $\eta_i$ changes with order, charge, and occupancy. Minimum RMS, minimum $W$, minimum shear, and minimum zigzag are distinct objectives.
+
+If a renderer delays a column because the waveform engine is busy, it must update the column start:
+\begin{equation}
+ t_{c+1}=\max\left[t_{c+1}^{\mathrm{requested}},t_c+M/f\right].
+\end{equation}
+The effective pitch is $v_s(t_{c+1}-t_c)$ and the effective DPI must be reported. Retaining requested column spacing while declaring an infeasible schedule produces a physically misleading preview.
+
+\subsection{Constrained raster and charge optimization}
+Let $\omega$ collect geometry, ink, electrical calibration, operating conditions, and airflow realization. The forward simulator maps $(\mathcal S,\mathcal T,b^{\mathrm{prev}},b;\omega)$ to requested-target landings and event diagnostics. A generic objective over a declared set $\mathcal C$ of contexts is
+\begin{align}
+ J={}&\sum_{c\in\mathcal C}w_c\left[
+ \frac{1}{|I_c|}\sum_{i\in I_c}
+ \left(\frac{X_{ic}-X_i^*}{s_X}\right)^2
+ +\lambda_Y\frac{1}{|I_c|}\sum_{i\in I_c}
+ \left(\frac{Y_{ic}^{\mathrm{paper}}-Y_c^*}{s_Y}\right)^2\right]\\
+ &+\lambda_W\sum_c\frac{W_c}{s_W}+\lambda_G\sum_jg_j
+ +\lambda_R\mathcal R(\mathcal T).
+\label{eq:objective}
+\end{align}
+Scales $s_X,s_Y,s_W$ make weights dimensionless. $\mathcal R$ can penalize unnecessary table complexity or command roughness, but monotonic command order must not be imposed automatically on a nonlinear raster. These are possible design choices; the archived campaigns used several specific objectives rather than this single universal weighted sum.
+
+Hard acceptance conditions include permitted commands; requested row coverage; maximum and RMS placement limits; no detected target merging; finite, valid landings; required gutter and slot passage; and the cycle budget. A candidate with a smaller average objective is not accepted if it violates a hard condition. Clearance must be checked along the flight and at the correct plane, not inferred from substrate displacement.
+
+For the archived gutter diagnostic, the criterion is $X_i(Z_g)\geq X_{\min}$ for every requested target. This is a center-coordinate test. A complete geometry check should instead use a signed surface-distance function, for example $d_{\mathrm{solid}}(\vect r_i)-a_i\geq m_{\mathrm{clear}}$, and verify nonprinting-droplet collection. Those solid-intersection and collection checks are not fully implemented in the archived solver.
+
+\subsubsection{Stage 1: isolated-flight charge targets}
+For each logical row, emit that target with otherwise nonprinting cycles and solve a one-dimensional bounded root/minimization problem for its charge or command. Preserve the specified amplifier phase and guard history. The result is a reference charge, flight time, field trajectory, and gutter crossing for each target. These references provide a useful initialization and local sensitivity scale; they are not valid interacting charges by assumption.
+
+Where monotonicity is verified, bisection or a bracketed scalar solve can be used. A target that cannot be reached within the allowed voltage and clearance envelope is a design infeasibility for that calibration; it must not be fixed by changing capacitance independently for each row or raster. A common calibrated charge law should be retained across structures unless an independently measured setting differs.
+
+\subsubsection{Stage 2: full-stroke joint charge fitting}
+Start from isolated targets, emit the complete stroke, and optimize all target charges jointly. For a residual vector $\vect e(\vect u)$ and $N$ command variables, a central finite-difference sensitivity is
+\begin{equation}
+ J_{ki}\simeq\frac{e_k(\vect u+h_i\vect e_i)-e_k(\vect u-h_i\vect e_i)}{2h_i}.
+\end{equation}
+One full central-difference matrix requires $2N$ perturbed flights, plus the baseline if not cached. Each column measures the response of \emph{every} output to changing one input. It is not a common scaling of all charges. A joint update solves
+\begin{equation}
+ \min_{\Delta\vect u}\|W(J\Delta\vect u+\vect e)\|_2^2
+              +\lambda\|\Delta\vect u\|_2^2,
+ \quad \vect l\leq\vect u+\Delta\vect u\leq\vect h,
+ \quad |\Delta u_i|\leq\delta_i.
+\label{eq:joint}
+\end{equation}
+The line search tests the complete interacting model at fractions such as $1,1/2,1/4,1/8$. Accepted steps must improve the chosen merit while retaining constraints. A Broyden update can reuse the matrix:
+\begin{equation}
+ J_{n+1}=J_n+
+ \frac{(\Delta\vect e-J_n\Delta\vect u)\Delta\vect u^T}
+      {\Delta\vect u^T\Delta\vect u}.
+\end{equation}
+The matrix is refreshed after stalling, changed event topology, or a prescribed number of steps. Unsafe perturbations require a safe one-sided derivative or rejection, not fabricated gradients.
+
+Archived implementations differ. Some early shared-charge fits use only isolated per-row slopes, giving a diagonal/sparse approximation. The later no-guard search acquires full coupled finite differences with $h_i=\max(h_{\min},\epsilon_D|D_i|)$, a prescribed relative local step bound, matrix refreshes, and full-flight line searches. Results should identify which derivative scheme was used; a full coupled Jacobian must not be attributed to every earlier fit.
+
+\subsubsection{Stage 3: ordering and guard-location search}
+The outer problem is mixed discrete--continuous. At fixed $M$, its unconstrained sequence count is $\binom{M}{N}N!$. Exhaustive search is generally impractical. The implemented search therefore uses bounded families of ascending, descending, effective-flight-time, interleaved, randomized, and locally perturbed orders. Cheap timing predictions screen candidates; only interacting simulations establish their actual quality.
+
+At a fixed guard count, moving one guard from one gap to another preserves $M$ while changing local separation. Adjacent firing-label swaps change the permutation without changing throughput. Each structural change requires refitting charges: keeping a charge vector from another order can confound a poor initialization with a poor structure.
+
+Trailing guards can separate consecutive strokes, but do not separate droplets within the current stroke. They may serve a history-control purpose, not an internal shielding purpose. Padding all unused cycles at the end must not be advertised as an internally guarded raster.
+
+\subsubsection{Width-first versus placement-first refinement}
+One implemented refinement minimizes $W$ subject to local vertical and tilt limits. With a locally centered horizontal vector $\vect y$ and sensitivity $J_Y$, introduce left and right limits $L,R$ and solve the linearized inequalities
+\begin{equation}
+ L\leq y_i+(J_Y\Delta\vect u)_i\leq R,
+ \quad |e_{X,i}+(J_X\Delta\vect u)_i|\leq\epsilon_X,
+\end{equation}
+while minimizing $R-L$ with bounded command steps. Slack variables restore constraint feasibility but do not convert a violating result into an accepted design. Full nonlinear replay is essential. A small $W$ obtained at incorrect vertical rows is not a successful raster, and a zero global slope can still hide severe local zigzag.
+
+\subsection{From stroke optimization to shared dependency tables}
+\subsubsection{Finite font scope and context construction}
+A font defines a finite set of nonblank column masks $\mathcal B_{\mathrm{font}}$. The required reference set is
+\begin{equation}
+ \mathcal B_{\mathrm{ref}}=\mathcal B_{\mathrm{font}}
+   \cup\{2^0,\ldots,2^{N-1}\}\cup\{2^N-1\}.
+\end{equation}
+The distinct font masks are enumerated directly from the supplied bitmaps and deduplicated before simulation. Adding isolated rows and the complete stroke establishes baseline cases without assuming that every possible occupancy pattern occurs in the font.
+
+Previous/current context pairs are derived from the actual rendering and intercharacter-spacing policy. Blank-history references are added explicitly. This set is generally smaller than the Cartesian product of all masks and does not imply coverage of arbitrary kerning or unbounded uninterrupted history.
+
+\subsubsection{Local dependency selection versus physical interaction}
+For row $i$, choose ordered binary labels $\mathcal L_i=(\ell_1,\ldots,\ell_{K_i})$ and define
+\begin{equation}
+ a_i=\sum_{j=1}^{K_i}b_{\ell_j}\,2^{K_i-j}.
+\label{eq:address}
+\end{equation}
+A label may refer to a current or preceding-stroke logical position. The first label is the most significant bit (MSB). For a same-stroke landing-order neighborhood of radius $w$,
+\begin{equation}
+ K_i=\min(w,i-1)+\min(w,N-i).
+\end{equation}
+The complete binary address capacity is $\sum_i 2^{K_i}$, whereas the populated keys depend on font and history scope. Pattern count, address capacity, populated keys, and distinct numeric commands are different quantities.
+
+A firing-order neighborhood uses the rank of row $i$ in $\pi$ rather than its geometric row number. In the previous-aware implementation, the first $w$ firing ranks can reference the preceding stroke's last ranks. No next stroke is emitted in that archived pair experiment. Choosing a finite dependency window limits the \emph{controller representation}; it does not truncate the flight forces to that window. Forces still use the active-particle model and its independently declared Coulomb/wake cutoffs.
+
+\subsubsection{Jointly fitting shared entries}
+Independently optimized charges for individual patterns can disagree for the same dependency address. A valid lookup must resolve that conflict by fitting a shared parameter vector $\vect\theta$. For each context, gather its active entries, run the complete stroke pair, and minimize the joint placement objective over the shared table. Coverage-preserving splits retain each fitted key in the training contexts while reserving combinations for evaluation. Such a split tests recombination, not unseen dependency addresses.
+
+Repeated residual variability at the same address suggests an under-specified dependency model, numerical/model error, or a poor optimizer. Add labels where the evidence supports them, subject to controller memory. Avoid uniformly expanding all neighborhoods without quantifying the resulting address count and quality benefit. Unvisited addresses must remain explicitly unsupported or use a separately assessed fallback; interpolation alone does not establish address coverage.
+
+\subsubsection{Charge-first design and command realization}
+A target-charge table is useful for separating flight physics from electronics. However, the command required for a given net charge also depends on the amplifier state and previous physical charges. Thus conversion to a fixed per-address DAC value is another constrained fitting problem, not necessarily division by one capacitance and voltage gain.
+
+Two useful comparisons must remain distinct: (i) replaying the \emph{same isolated DACs} through an interacting waveform, and (ii) maintaining the \emph{same net charges} by sequentially inverting that waveform. The second is a diagnostic of flight interactions; it does not establish that a limited-history hardware table can realize those targets. Final assessment uses the exported integer DAC table with the exact deployment address definition and continuous waveform state.
+
+\subsection{Deployment records and history horizon}
+Two-stroke simulations emit a previous stroke followed by a current stroke while retaining charging state. Older droplets and following emissions are outside that reference. Increasing the history horizon and assessing longer continuous messages are separate checks, since particles from a following stroke can interact with earlier droplets still in flight.
+
+A development record retains the selected structure, shared commands, realized charges, operating inputs, context keys, landings, arrival times and event status. Optional trajectories, station crossings, force components and contact lineage support numerical diagnosis. Final assessment uses the exported integer table with the deployment address definition and continuous waveform state.

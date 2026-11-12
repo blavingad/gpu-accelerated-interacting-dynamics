@@ -1,0 +1,14 @@
+{
+  "CPU": "Intel Core i9-14900K",
+  "logical_CPU_count": 32,
+  "GPU": "NVIDIA RTX A5000",
+  "GPU_memory_reported_MiB": 24564,
+  "driver_version": "595.84",
+  "kernel": "Linux 6.8.0-138-generic",
+  "python": "3.12.3",
+  "jax": "0.11.1",
+  "precision": "float32 particle integration; waveform preparation float64 before conversion",
+  "thread_policy": "default installed CPU backend; no fixed CPU-thread count imposed",
+  "benchmark_policy": "timed subprocesses sequential; complete output synchronized; compilation and transfer separate; dynamic charges/masks, fixed shape and physical configuration",
+  "scope": "single-workstation workload benchmark, not hardware-normalized performance or a rig comparison"
+}

@@ -1,0 +1,11 @@
+{
+  "source": "/tmp/virtual_dcr/reports/design_space_framework_v1/experimental_paired_dots_by_glyph.csv",
+  "sha256": "f42de8af7bd3af137237795b15daf680d0ba0d995b7e26a83672cd9622781ca4",
+  "dots": 3450,
+  "dots_per_case": 1725,
+  "glyphs_per_case": 26,
+  "registration": "none",
+  "footprint": "nominal 528 micrometers; not measured diameters",
+  "overlay": "matched centers and unit-scale connecting residuals",
+  "raw_coordinates_unchanged": true
+}

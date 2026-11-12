@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "experimental_assessment": "results/experimental",
+  "experimental_provenance_sha256": "9763aaaa6ca14c6d33cec2bedd8ed1ec2d526caf7108d1173c9d8c0583df4d85",
+  "numerical_freeze_sha256": "6799f69a19576da8d2ae3c72912f3e9fb0ff65e1df60a04ab2b49deb240e022a",
+  "paper_sha256": "c50fd6cc8c1e2993105ca455eec85ceb805b7bc30a12ddaf401e9c00882959e3",
+  "current_matched_gpu_speedup": 5.20253784475105,
+  "source_zip_sha256": "f9e1dc36ffb7370b62182f3ec32d2acf0039e2fbdace485c48d971c21fc87dec"
+}

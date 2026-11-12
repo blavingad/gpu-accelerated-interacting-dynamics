@@ -1,0 +1,30 @@
+{
+  "field_file": "inputs/electric_field.npz",
+  "sha256": "4772e6c960e091cd1723e6b740db9776313b08c66b521f3a0e1483885d4c832f",
+  "coordinate_units": "m in NPZ and solver; mm in diagnostic tables",
+  "field_units": "V/m",
+  "shape": [
+    96,
+    89,
+    343,
+    3
+  ],
+  "origin_mm": [
+    -8.091697692871094,
+    -10.809871673583984,
+    -4.0
+  ],
+  "upper_bound_mm": [
+    10.759870332549326,
+    6.699999212287366,
+    64.23000208451413
+  ],
+  "spacing_mm": [
+    0.19843755662441254,
+    0.1989758014678955,
+    0.19950293004512787
+  ],
+  "interpolation": "Trilinear; zero field outside the stored grid",
+  "source_mesh_available_in_repository": false,
+  "field_poisson_solve_reproducible_from_this_repository": false
+}

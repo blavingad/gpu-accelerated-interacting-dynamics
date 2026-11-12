@@ -1,0 +1,20 @@
+{
+  "frozen_utc": "2026-11-11T11:08:44.017061+00:00",
+  "files": {
+    "ablation/high/full/measured_pairs.csv": "b2daf80ed55950c57ad3eab96a9958a47a5f9bc1f16ffc4cdb4d844256aa8019",
+    "ablation/high/neither/measured_pairs.csv": "f3283b4e87dbdb9cff9221a411dd4d625a40491adb757aa4c001aec3fe14264e",
+    "ablation/high/no_coulomb/measured_pairs.csv": "b37de96a4fd2f4cee31ead1bde183c90105b317e2122df2b9a072e06ee917254",
+    "ablation/high/no_wakes/measured_pairs.csv": "ded06a5fce1131e53fa79adf502d7d435340ef33bf00446108cc1a7bc02e5403",
+    "ablation/low/full/measured_pairs.csv": "3dafb1a14c17bcbd785d23ff8c01d14ed617a1ab407fd86a5fa9b51868a34c06",
+    "ablation/low/neither/measured_pairs.csv": "1045651b38d7792f8b6f7dd836627ea74eb433eefc9bd86cea1e767eff42792f",
+    "ablation/low/no_coulomb/measured_pairs.csv": "a584fa192adfbbd60bad5d0ea3af7a850dca9e934db92a09bffa682966f52741",
+    "ablation/low/no_wakes/measured_pairs.csv": "dfbf19028035ca4b1459814eba246ed10c5cd40e0618f215d73639a78e770ec4",
+    "directional_metrics.csv": "ab5945ea400a489cfc01f568fc3c8465c6876bda85da266ea84fba955f45c556",
+    "experimental_ablation_summary.csv": "45bafdb0857674fdefd7036319fd42f2497db07e139ef5e2c4e979dfdcd9b1ea",
+    "experimental_paired_dots_by_glyph.csv": "488f684b612a219665fd49c948fc2eeb23325834c99695f637a6526d337b0e73",
+    "experimental_per_glyph_metrics.csv": "5cca06e79f0024d20036528c759748943020885e9a1550cc66a2764c57aa250e",
+    "physical_coordinate_metrics.csv": "3ee7defb832b5b639456a47a6f2f90211385115830fbb160b2c5045ccece7efa",
+    "provenance.json": "9763aaaa6ca14c6d33cec2bedd8ed1ec2d526caf7108d1173c9d8c0583df4d85"
+  },
+  "interpretation": "Numerical evidence frozen before manuscript conclusions are revised"
+}

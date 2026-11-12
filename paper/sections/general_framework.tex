@@ -1,0 +1,33 @@
+\section{Computational framework}
+\subsection{General interacting dynamics}
+Consider $P$ particles with states $\vect z_i=(\vect r_i,\vect v_i,\vect \eta_i)$, where $\vect \eta_i$ denotes internal attributes such as mass, radius, and charge. Let $\mathcal G$ denote the geometry, $\vect u(t)$ the commanded actuation, $\vect h(t)$ its retained history, and $\omega$ environmental parameters. A useful decomposition is
+\begin{align}
+ \dot{\vect z}_i={}&\vect f_{\mathrm{ext}}\bigl(\vect z_i,
+                  \mathcal F_{\mathcal G}(\vect r_i);\omega\bigr)
+       +\sum_{j\ne i}\vect f_{\mathrm{pair}}(\vect z_i,\vect z_j;\omega)\\
+       &+\vect f_{\mathrm{dir}}\bigl(\vect z_i,\mathcal N_i(\vect z);\omega\bigr)
+       +\vect f_{\mathrm{act}}\bigl(\vect z_i,\vect u,\vect h;\omega\bigr).
+\label{eq:general_decomposition}
+\end{align}
+The reusable field $\mathcal F_{\mathcal G}$ captures a geometry-dependent environment. The pair term describes direct interactions; the directed term captures mechanisms such as a wake produced by a particle ahead of another. The actuation term includes hidden electronic or material state. Release, contact, collection, and deposition introduce discrete events, so the overall system is a hybrid dynamical model rather than a globally smooth ODE.
+
+This decomposition does not require every interaction to conserve particle momentum. Pairwise Coulomb forces are antisymmetric, whereas aerodynamic drag exchanges momentum with an environment that is not explicitly evolved. A physically structured closure must respect that distinction. Treating wake effects as an equal-and-opposite particle force would impose the wrong conservation law on the reduced system.
+
+\subsection{Reuse and candidate-dependent work}
+For $K$ candidates and $N_t$ time steps, a schematic comparison is
+\begin{align}
+ C_{\mathrm{coupled}}&\sim K N_t\left[C_{\mathrm{fluid}}(N_c)
+                +C_{\mathrm{mapping}}(P,N_c)+C_{\mathrm{pair}}(P)\right],\\
+ C_{\mathrm{reduced}}&\sim C_{\mathrm{field}}(\mathcal G)
+          +K N_t\left[C_{\mathrm{interp}}(P)+C_{\mathrm{pair}}(P)
+                       +C_{\mathrm{closure}}(P)\right].
+\label{eq:cost_model}
+\end{align}
+Here $N_c$ is the number of fluid cells. These expressions identify work components; no runtime ratio between the two formulations is measured. The reduced model moves the device-field computation outside the candidate loop while retaining candidate-dependent interactions.
+
+\subsection{Choosing what can be reused}
+The external electric field is reusable when electrode potentials and geometry are fixed, space-charge feedback on that field is negligible at the required accuracy, and direct particle interactions are accounted for separately. A field must be recomputed if these conditions change. Prescribed mean airflow is reusable only within a characterized flow configuration; it cannot represent every geometry-induced recirculation without updating its parameters or its model.
+
+Wake interactions cannot be frozen as one common force because the relative particle arrangement changes during the search. They are therefore evaluated from instantaneous separations and velocities. The same principle applies to Coulomb interactions, amplifier state, and charge induction: quantities that depend on the candidate history are recomputed even when the device field is not.
+
+The same forward specification is used for isolated references, joint command fitting, structural search and final controller replay. Outputs include landings, arrival times, realized charges, contact lineage and clearance diagnostics, allowing an optimizer to distinguish placement errors from invalid trajectories or actuation failures.

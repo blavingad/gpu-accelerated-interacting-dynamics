@@ -1,0 +1,8 @@
+{
+  "sampled_candidates": 1000000,
+  "unique_retained": 15600,
+  "physical_orders_selected": 512,
+  "seed": 20261102,
+  "model": "ensemble of four measured full-stroke flight offsets; frozen offsets are approximate and do not validate charge or coalescence",
+  "exhaustive": false
+}

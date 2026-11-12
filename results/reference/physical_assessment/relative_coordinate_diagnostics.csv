@@ -1,0 +1,5 @@
+configuration,direction,dots,relative_RMS_percent,maximum_absolute_relative_percent,note
+A,horizontal,1725,1.4563215217637768,60.33168940616278,Origin-dependent coordinate fraction; not a localization-uncertainty measurement or a print-quality tolerance.
+A,deflection,1725,0.3050466965894461,0.7691883688102995,Origin-dependent coordinate fraction; not a localization-uncertainty measurement or a print-quality tolerance.
+B,horizontal,1725,0.027820044726397587,0.04971554188005763,Origin-dependent coordinate fraction; not a localization-uncertainty measurement or a print-quality tolerance.
+B,deflection,1725,0.27820044726397286,0.4971554188005878,Origin-dependent coordinate fraction; not a localization-uncertainty measurement or a print-quality tolerance.

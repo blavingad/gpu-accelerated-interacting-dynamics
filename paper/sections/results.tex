@@ -1,0 +1,76 @@
+\section{Digital-development results and experimental assessment}
+\label{sec:results}
+\label{sec:deposited_assessment}
+\subsection{Two complementary development tasks}
+The low-speed case begins with a predefined structure and discovers context-dependent commands. The high-speed case combines structure and dependency discovery. Proprietary structure identifiers, slot assignments and command sequences are withheld. Both pass through coupled fitting, integer-command realization, deployment and deposited-position assessment. A best-found structure is not claimed to be globally optimal.
+
+\input{sections/framework_evidence}
+
+\subsection{Operating points and paired measurements}
+Computational design was followed by deployment of the resulting DAC table on the printer, physical printing and independent deposited-coordinate extraction. The low-speed case illustrates dependency discovery on a predefined structure. The high-speed case illustrates joint structure and dependency discovery. The main text describes the cases by operating point; the corresponding reproduction inputs are provided with the implementation.
+
+According to the clarified acquisition provenance, ten repeated prints of the same complete uppercase A--Z message were analyzed from images for each raster. Corresponding dot coordinates were averaged across the ten measurements, and the supplied arrays contain these mean positions. There are ten repeated message prints per case; the 26 letters are not treated as independent replicate prints. The collected samples cover uppercase A--Z at 75 kHz and 60 requested horizontal DPI. Substrate speed is 50 m/min for the low-speed case and 100 m/min for the high-speed case. Each supplied coordinate dataset contains 1,725 mean dot positions. Coordinates are in millimeters. A nominal deposited diameter of $528\um$ is used only for footprint visualization; localization error is computed from dot centers.
+
+The low-speed reference is a fresh native-75-kHz physical replay of the unchanged exported integer-DAC table. The high-speed reference uses its native-75-kHz repaired integer-DAC replay. The amplifier and induction sequence are evaluated at that frequency before integrating particle flight. No timing projection substitutes for physical integration, and no commands are refitted to the measured positions. The cached message reconstruction uses previous/current-stroke references with blank older history and no next-stroke emission; it is not an uninterrupted whole-message simulation. The original campaigns also used different native droplet-property records, so this is not a controlled causal comparison of structure alone.
+
+Dot identities are matched by message line, column and logical landing label, rather than nearest-neighbor reassignment. All measured dots are retained. Input hashes, frozen simulation references and derived metrics are preserved in the accompanying repository. The comparison uses a versioned experimental coordinate dataset and fixed simulation predictions; superseded coordinate versions are retained separately and are not pooled as independent acquisitions.
+
+\subsection{Character reconstruction from deposited coordinates}
+Figures~\ref{fig:coordinate_low}--\ref{fig:coordinate_high} reconstruct the uppercase glyph samples directly from the paired simulation and measured center coordinates. They are coordinate-based reconstructions, not photographs or newly generated font targets. All 1,725 matched dots per case are retained. Each measured/simulated pair uses identical millimeter scales, bounds and a nominal $528\um$ circular footprint for visual context; actual measured dot diameters are unavailable. The experimental reconstruction depicts mean dot positions across ten prints, rather than any one physical print. Overlay panels show the matched centers at their original relative positions, with no translation, rotation, scale, shear or per-character registration fitted. Letters are displayed in alphabet order; the plotted experimental centers represent the ten-print mean message.
+
+\begin{figure}[p]\centering\includegraphics[width=\linewidth,height=0.78\textheight,keepaspectratio]{figures/coordinate_print_low.pdf}\caption{Low-speed case: simulation and measured-print reconstruction from deposited coordinates, followed by matched-center overlays. The same coordinates used for the quantitative errors are shown without an alignment fit. Nominal circle sizes illustrate footprint only.}\label{fig:coordinate_low}\end{figure}
+\begin{figure}[p]\centering\includegraphics[width=\linewidth,height=0.78\textheight,keepaspectratio]{figures/coordinate_print_high.pdf}\caption{High-speed case: simulation, measured-print reconstruction and matched-center overlays, with equal millimeter axes and all uppercase glyph samples retained.}\label{fig:coordinate_high}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{figures/coordinate_print_closeups.pdf}\caption{Selected character-center overlays at unit displacement scale. Blue dots are simulated centers, orange crosses are measured centers, and gray segments connect matched identities. One identical plotting-origin subtraction is applied to both coordinate sets within each glyph; it does not alter their residuals. These shape examples supplement the complete A--Z views and all-dot metrics.}\label{fig:coordinate_closeups}\end{figure}
+
+\subsection{Prediction accuracy and target quality}
+Let $\vect p_i=(y_i,x_i)$ denote the simulated substrate-direction and deflection coordinates, and let $\vect m_i$ denote the corresponding measured position. Prediction residuals and pooled root-mean-square errors are
+\begin{equation}
+ \vect e_i=\vect m_i-\vect p_i,\quad
+ E_a=\sqrt{\frac1n\sum_{i=1}^n e_{i,a}^2},\quad
+ E_{2D}=\sqrt{\frac1n\sum_{i=1}^n\lVert\vect e_i\rVert_2^2}.
+\end{equation}
+These are errors against physical deposited coordinates, distinct from an optimized simulation's residual against an ideal geometric target. A nearly ideal computational print is not itself physical validation.
+
+Table~\ref{tab:deposited_errors} reports raw-coordinate comparisons without fitting translation, rotation, scale, shear, or per-character corrections. The simulator uses one phase defined from its own blank/full-stroke reference, not fitted to measured dots. Whole-file translation and rigid registrations are available separately in the internal sensitivity analysis; those are in-sample nuisance-parameter fits, not additional independent experiments.
+
+\begin{table}[htbp]\centering\small
+\caption{Measured-minus-simulated deposited-coordinate errors at the two tested operating points. All errors are in micrometers; P95 refers to radial residual magnitude.}\label{tab:deposited_errors}
+\begin{tabular}{lrrrrr}\toprule
+Case & Dots & Horizontal RMS & Deflection RMS & 2D RMS & 2D P95\\\midrule
+Low speed & 1725 & 20.97 & 16.12 & 26.45 & 50.06 \\
+High speed & 1725 & 31.23 & 21.58 & 37.96 & 71.64 \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{figures/experimental_residual_distributions.pdf}
+\caption{Unregistered residual distributions relative to the experimental mean positions. The cases represent different design tasks and operating points.}
+\end{figure}
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{figures/framework_glyph_assessment.pdf}\caption{Per-character deflection RMSE against the experimental ten-print mean. Commands and coordinate registration are fixed across the assessment.}\label{fig:per_character}\end{figure}
+
+The high-speed case has higher measured-coordinate errors in both directions: 21.58 micrometers RMS in deflection and 31.23 micrometers along substrate motion. Its maximum absolute directional residuals are 57.16 and 96.25 micrometers, respectively. These are prediction discrepancies against the experimental mean positions, separate from the geometric residual minimized during computational design. The commands, field and trajectories were retained for this assessment; no measurement-dependent refit or alignment was applied.
+
+\subsection{Experimental scope and confidentiality}
+The released assessment contains 1,725 mean dot positions per raster, obtained from ten repeated A--Z prints at each operating point. Additional laboratory records, including raw images and individual replicate measurements, remain confidential and are outside the public evidence package. The reported RMSE therefore measures disagreement with the released mean coordinates; it does not estimate single-print variability or a repeatability confidence interval.
+
+This assessment tests deposited-position prediction and the computational-to-printer workflow for the two reported configurations. It does not independently identify each force closure or assess intermediate trajectories, contact events or collection margins. Noncoordinate fields retained in the export schema, such as flight time and gutter diagnostics, are simulation metadata rather than additional measured labels. The experimental conclusions are restricted to the released coordinates and operating points.
+
+\subsection{Controlled physics ablation at frozen controller commands}\label{sec:ablation}
+The raster commands were developed with the full interacting model. To test whether its in-flight interaction terms matter for those deployed designs, each unchanged integer-command lookup is evaluated with full physics, flight Coulomb forces disabled, wakes disabled, and both disabled. All 644 declared contexts per case are retained. The field, ink properties, charging waveform and induction, guard commands, initial states, event rules, integration step and controller table are identical within each case; no alternative is refitted. In particular, disabling flight Coulomb forces does not disable electrode forces or neighboring-drop charging induction.
+
+The geometric-target assessment and comparison with measured deposited coordinates are distinct. Table~\ref{tab:ablation} reports the full computational pool; Figure~\ref{fig:ablation} compares the A--Z subset with the same measured coordinates and a common simulation-defined phase. Merged targets are not treated as independently localized singleton droplets. Their counts and the number of scoreable measurement pairs are retained, rather than allowing exclusions to improve an ablated model's apparent accuracy.
+\begin{table}[htbp]\centering\small
+\caption{Fixed-command ablation on 644 contexts per case. RMS is the deflection error of finite requested-target coordinates, including lineage-mapped coordinates; merged targets are separately counted. These are numerical target errors, not measurement RMSE.}\label{tab:ablation}
+\begin{tabular}{llrrr}\toprule Case & Physics & Target RMS ($\mu$m) & Accepted contexts & Merged targets\\\midrule
+Low & Full & 6.4 & 644 & 0 \\
+Low & No flight Coulomb & 51.8 & 484 & 0 \\
+Low & No wakes & 103.1 & 69 & 0 \\
+Low & Neither & 114.3 & 58 & 0 \\
+High & Full & 26.0 & 644 & 0 \\
+High & No flight Coulomb & 190.4 & 79 & 524 \\
+High & No wakes & 113.2 & 72 & 0 \\
+High & Neither & 175.0 & 50 & 0 \\
+\bottomrule\end{tabular}\end{table}
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{figures/physics_ablation.pdf}\caption{Coordinate-prediction ablation with unchanged commands and reference phase. Blue and teal bars denote deflection and substrate-direction RMSE. Each case has 1,725 measured target positions; an annotated fraction gives scoreable singletons when merged targets prevent an identity-preserving coordinate comparison.}\label{fig:ablation}\end{figure}
+The full model gives the lowest measured deflection RMSE in both cases under this fixed-command test. Its deflection RMSE is 16.1--21.6 micrometers, whereas omitted-term variants span 58.5--228.2 micrometers on their scoreable targets. These results show that the omitted physics matter for the developed command tables. Because those tables were optimized with the full model, this is a conditional deployment/prediction test, not a comparison of independently recalibrated and reoptimized alternatives. It does not uniquely identify each closure or prove that no simplified model could perform adequately after its own development. Coalescence outcomes need not vary monotonically when two coupled terms are removed together.

@@ -1,0 +1,9 @@
+case,variant,requested_dots,scored_singletons,missing_targets,merged_targets,horizontal_RMSE_um,vertical_RMSE_um,phase_rule,registration_fitted_to_measurements
+low,full,1725,1725,0,0,20.969166405258598,16.116815071999753,Unchanged simulation-only phase from the frozen native paper reference; common across all ablations,False
+low,no_coulomb,1725,1725,0,0,23.845262615304982,58.49290546481774,Unchanged simulation-only phase from the frozen native paper reference; common across all ablations,False
+low,no_wakes,1725,1725,0,0,29.663933994849128,111.37998719202348,Unchanged simulation-only phase from the frozen native paper reference; common across all ablations,False
+low,neither,1725,1725,0,0,29.76735637316979,123.15995628713802,Unchanged simulation-only phase from the frozen native paper reference; common across all ablations,False
+high,full,1725,1725,0,0,20.83233174353185,14.382745599054696,Unchanged simulation-only phase from the frozen native paper reference; common across all ablations,False
+high,no_coulomb,1725,1543,0,182,71.25183774735892,227.96160438583954,Unchanged simulation-only phase from the frozen native paper reference; common across all ablations,False
+high,no_wakes,1725,1725,0,0,54.23167940223594,118.98956176910127,Unchanged simulation-only phase from the frozen native paper reference; common across all ablations,False
+high,neither,1725,1725,0,0,74.21637611632654,201.94780001817784,Unchanged simulation-only phase from the frozen native paper reference; common across all ablations,False

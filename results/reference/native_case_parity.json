@@ -1,0 +1,24 @@
+[
+  {
+    "case": "low",
+    "matched_rows": 959,
+    "maximum_deflection_difference_um": 0.0,
+    "RMS_deflection_difference_um": 0.0,
+    "crossings_in_different_native_time_bin": 0,
+    "maximum_crossing_time_difference_us": 0.00024113059986230478,
+    "maximum_same_time_bin_deflection_difference_um": 0.0,
+    "landed_and_merged_flags_equal": true,
+    "note": "CPU/GPU float32 accumulation can change discrete crossing by one native 1-us step; not exact trajectory equality across backends."
+  },
+  {
+    "case": "high",
+    "matched_rows": 3988,
+    "maximum_deflection_difference_um": 3.380298614501953,
+    "RMS_deflection_difference_um": 0.07559751258946618,
+    "crossings_in_different_native_time_bin": 2,
+    "maximum_crossing_time_difference_us": 1.0000817776000155,
+    "maximum_same_time_bin_deflection_difference_um": 0.01430511474609375,
+    "landed_and_merged_flags_equal": true,
+    "note": "CPU/GPU float32 accumulation can change discrete crossing by one native 1-us step; not exact trajectory equality across backends."
+  }
+]

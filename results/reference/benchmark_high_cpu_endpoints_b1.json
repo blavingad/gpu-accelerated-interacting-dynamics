@@ -1,0 +1,23 @@
+{
+  "case": "high",
+  "device": "cpu:0",
+  "platform": "cpu",
+  "mode": "endpoints",
+  "batch": 1,
+  "native_steps": 8001,
+  "compile_s": 0.5511735416948795,
+  "first_execution_s": 1.866886867210269,
+  "warm_execution_s": [
+    2.0885802255943418,
+    2.0781838558614254
+  ],
+  "warm_median_s": 2.0833820407278836,
+  "warm_cases_per_s": 0.4799887780786591,
+  "device_to_host_s": 0.0007273871451616287,
+  "output_bytes": 3300,
+  "synchronization": "jax.block_until_ready on complete result",
+  "scope": "Fixed physical configuration and capacity; dynamic waveform-derived charges and coalescence target masks; compilation and transfer reported separately",
+  "python": "3.12.3",
+  "jax": "0.11.1",
+  "model_sha256": "a5554064a76cd03fb1f19fd60d5a8f6b50bdabd68023ab85a3be32bd43812d57"
+}

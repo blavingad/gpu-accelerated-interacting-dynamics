@@ -1,0 +1,15 @@
+\section{Additional metric and deployment definitions}
+\subsection{Metrics and reproducibility definitions}
+For requested targets, let $e_{X,i}=X_i-X_i^*$. Report
+\begin{equation}
+ E_{X,\mathrm{RMS}}=\sqrt{\frac{1}{n}\sum_ie_{X,i}^2},\qquad
+ E_{X,\max}=\max_i|e_{X,i}|.
+\end{equation}
+Do not replace missing or merged targets with benign residuals. Report them separately and fail acceptance. Pooled per-dot RMS differs from maximum per-context RMS and mean context RMS; identify the aggregation.
+
+For a complete column, one phase $\bar Y=n^{-1}\sum_iY_i^{\mathrm{paper}}$ gives $e_{Y,i}=Y_i^{\mathrm{paper}}-\bar Y$. This changes translation only. A fitted slope or per-pattern registration can hide timing defects and belongs in a separate diagnostic. Chronological arrival order sorts actual $t_i^{\mathrm{arr}}$; geometric order is $1,\ldots,N$; firing order is $\pi$. They are distinct arrays.
+
+\subsection{Dependency address and printer export}
+The ordered labels in Eq.~\eqref{eq:address} define one scalar lookup entry. Hexadecimal display is a formatting convention: with 16 columns, the row offset is $16\lfloor a/16\rfloor$ and the column is $a\bmod16$. A--F mean decimal 10--15. For $K$ dependencies there are $2^K$ entries, not $K$ independent DAC vectors. Thirteen labels permit 8192 entries per drop.
+
+Export must preserve the sequence, label order, MSB/LSB convention, row offsets, and parser requirements. If fewer fitted labels are used than appear in the template, unused bits may repeat values only under an explicitly verified mapping. A format round-trip checks addresses, not waveform or flight fidelity. Exact exported-table replay supplies the model-based assessment.

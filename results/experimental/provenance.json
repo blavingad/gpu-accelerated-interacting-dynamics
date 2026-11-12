@@ -1,0 +1,26 @@
+{
+  "version": "v4",
+  "changed_case": "high",
+  "coordinate_columns": [
+    "landing_mm",
+    "substrate_horizontal_mm"
+  ],
+  "source_sha256": "f4a9e83379cb4efde5e72d46bcec03ad76ba52589d6de44ed8911031890aff8a",
+  "previous_high_sha256": "3b10aefbb5d1df930e8e98d5ea4885b52d4695a3148f432fd92910009bbc4ba2",
+  "previous_high_archive": "inputs/cases/high/history/measured_coordinates_before_v4.csv",
+  "low_measured_sha256": "e8f384afbfb78c1e42de816801205a316b8ba30b2bbbede81ca7f1c7efebba1e",
+  "low_unchanged": true,
+  "simulation_files": {
+    "low": "583e2528bbcce4a91ae709a02db7115198da011517428867d25e5e3bd304760f",
+    "high": "08870055b4e8b3a1677b00306c754471d3822f9068544895dd35846aad707079"
+  },
+  "ablation_predictions": "Unchanged frozen results/evidence_v2/ablation/{case}/{variant}/positions.csv",
+  "ablation_freeze_sha256": "1234e0815373ccdce8af27f054873b540e8b4f2cb661d0713165a7e6bbbf4361",
+  "simulation_refitted": false,
+  "registration_fitted": false,
+  "physical_simulation_rerun": false,
+  "experimental_protocol": "Previously supplied protocol: corresponding dot means over ten A-Z prints per raster",
+  "noncoordinate_fields": "Sequence/controller/flight metadata retained from supplied schema; only designated coordinate columns are treated as experimental positions",
+  "assessment_source_sha256": "7b3f5cc83a6cbb76c93df84066d4b241b142f61017ba814e29f518219ec315bf",
+  "update_source_sha256": "712d663e99afbc74579615f2c94e8b74a396e519f2b85b2aecd7b5f0000f23a7"
+}

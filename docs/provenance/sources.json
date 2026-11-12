@@ -1,0 +1,656 @@
+{
+  "original_repository": "Research source archive",
+  "purpose": "Source lineage and hashes before portability refactoring",
+  "files": [
+    {
+      "source": "src/vdcr/config.py",
+      "destination": "src/vdcr/config.py",
+      "sha256": "fc6569a1c98d594bebcd35aabe4c890a4557df815331bb0175ee5c7e79fb8bc2"
+    },
+    {
+      "source": "src/vdcr/electric_field.py",
+      "destination": "src/vdcr/electric_field.py",
+      "sha256": "aa2c38e26cddb5d1d31869e37e58daf38897549bcea4b2853adf525a9a56f5b2"
+    },
+    {
+      "source": "src/vdcr/jax_solver.py",
+      "destination": "src/vdcr/jax_solver.py",
+      "sha256": "a5554064a76cd03fb1f19fd60d5a8f6b50bdabd68023ab85a3be32bd43812d57"
+    },
+    {
+      "source": "src/vdcr/model.py",
+      "destination": "src/vdcr/model.py",
+      "sha256": "b79589015c595c98648a7494fdfff69c098b1508c42513a7b0f68c0b9f8770f8"
+    },
+    {
+      "source": "src/vdcr/charging.py",
+      "destination": "src/vdcr/charging.py",
+      "sha256": "568c9e17cfe997bf4780bdfc4900013c474aa0ec3f14ce5ff1d7f11b51e84df7"
+    },
+    {
+      "source": "src/vdcr/charge_explorer.py",
+      "destination": "src/vdcr/charge_explorer.py",
+      "sha256": "31e9843959b6458c7e6c558c57ad7f41ad43b3155ffc2d876300dfc761215200"
+    },
+    {
+      "source": "src/vdcr/charging_sequence.py",
+      "destination": "src/vdcr/charging_sequence.py",
+      "sha256": "a608ee3092e5b47d51a4bdbcbce898301ac25495a55f395145897da15d258e10"
+    },
+    {
+      "source": "src/vdcr/videojet_font.py",
+      "destination": "src/vdcr/videojet_font.py",
+      "sha256": "75701cab1a96c6b534288c8d6e64ecf97f5316f6903a2cc130422d0fbb8168a8"
+    },
+    {
+      "source": "src/vdcr/framework_workload.py",
+      "destination": "src/vdcr/framework_workload.py",
+      "sha256": "9cb7b891e916b63251e73a8d2eebc6f654e4c44ab8cb688f4ceb17fe5094c7c7"
+    },
+    {
+      "source": "src/vdcr/framework_campaign.py",
+      "destination": "src/vdcr/framework_campaign.py",
+      "sha256": "8525e958df39ee09b8cac1f6676c89b9cff721b2ce880215e5e7bcac24257d6a"
+    },
+    {
+      "source": "src/vdcr/coordinate_print_comparison.py",
+      "destination": "src/vdcr/coordinate_print_comparison.py",
+      "sha256": "c3a036962ca967cb4d5cac28b780682ea0f7bc9b19b875af4e49dfde47765482"
+    },
+    {
+      "source": "data/openfoam_electric_field_0p2mm.npz",
+      "destination": "inputs/electric_field.npz",
+      "sha256": "4772e6c960e091cd1723e6b740db9776313b08c66b521f3a0e1483885d4c832f"
+    },
+    {
+      "source": "data/fonts/videojet_16_high_international.bdf",
+      "destination": "inputs/fonts/videojet_16_high_international.bdf",
+      "sha256": "5441d06d4b13d78795b09977bd9fa477688483eff92b39cc0f06fe0c0bffe4ed"
+    },
+    {
+      "source": "data/fonts/videojet_16_high_international_single_stroke.bdf",
+      "destination": "inputs/fonts/videojet_16_high_international_single_stroke.bdf",
+      "sha256": "3bdb5f0f0f1450c2aaeda7c56357df6a43509328e992817166160be9ce87374c"
+    },
+    {
+      "source": "configs/print_quality_acceptance.json",
+      "destination": "inputs/quality_policy.json",
+      "sha256": "9ba516fa15087d141635f4f046007acc91d5a507b79f040c2ead7dd5c3f429e7"
+    },
+    {
+      "source": "results/previous_stroke_firing4_v1/d37g21_lr/candidate_charge_lookup.json",
+      "destination": "inputs/cases/low/charge_lookup.json",
+      "sha256": "50937a48518ebd0aeffe213ddcde0b8a48527847cd4abacfc07d9696177f6022"
+    },
+    {
+      "source": "results/printer_rasters/d37g21_lr/previous_stroke/d37g21_lr.csv",
+      "destination": "inputs/cases/low/printer_commands.csv",
+      "sha256": "6a7846fd91671057c36b8a23d3347a20f5b49ce46386f864363bc25e1d414553"
+    },
+    {
+      "source": "results/no_guard_font_campaign_v1/previous_stroke/candidate_charge_lookup.json",
+      "destination": "inputs/cases/high/charge_lookup.json",
+      "sha256": "e9ebf3f2c8ffd01fbd7c0a998d7135e35cdcba4952bfe513bfa1bb6ea2386d64"
+    },
+    {
+      "source": "results/linear_no_guard_integer_repair_v1/candidate_table.csv",
+      "destination": "inputs/cases/high/printer_commands.csv",
+      "sha256": "7500e56b14f8ba2f13d5234aa53765ddc70d26b40569e53e955edde69381f10f"
+    },
+    {
+      "source": "reports/design_space_framework_v1/low_complete_pool/completed.json",
+      "destination": "results/reference/low_complete_pool/completed.json",
+      "sha256": "fccb5cd64892d55a79076c454d54ba015e9f69415089c2e3cd20e52afe420c51"
+    },
+    {
+      "source": "reports/design_space_framework_v1/low_complete_pool/positions.csv",
+      "destination": "results/reference/low_complete_pool/positions.csv",
+      "sha256": "1a805162f78f939a6d3ce22229fcb22c71e138b2c0197f061e6fe5b553ead59f"
+    },
+    {
+      "source": "reports/design_space_framework_v1/low_complete_pool/coverage_vs_time.csv",
+      "destination": "results/reference/low_complete_pool/coverage_vs_time.csv",
+      "sha256": "e1997f299d77c9cce4fa75e9aa4ecbe9a1b35f7d5d04197de8ba45f4c3adcd0d"
+    },
+    {
+      "source": "reports/design_space_framework_v1/low_complete_pool/status.json",
+      "destination": "results/reference/low_complete_pool/status.json",
+      "sha256": "a2fd9ba187e3eb978e7359cd8f4fa848a014b6e5f366d8c923d00ef39a87560a"
+    },
+    {
+      "source": "reports/design_space_framework_v1/low_complete_pool/workload_manifest.json",
+      "destination": "results/reference/low_complete_pool/workload_manifest.json",
+      "sha256": "f033847ac4c2f4cbe481c1d1f0afcb06e29b9b24f7b61fd8da1f06cac07e06d7"
+    },
+    {
+      "source": "reports/design_space_framework_v1/low_complete_pool/context_metrics.csv",
+      "destination": "results/reference/low_complete_pool/context_metrics.csv",
+      "sha256": "05d47d11a53adf8d07dc6047c0f514e361f169b18470a2089a1b21bc7cd2ea8b"
+    },
+    {
+      "source": "reports/design_space_framework_v1/high_complete_pool/completed.json",
+      "destination": "results/reference/high_complete_pool/completed.json",
+      "sha256": "3c1077616b8d58cff941b6b979cf3847d079b96fd403e066d7f3a8d7ad4b2fff"
+    },
+    {
+      "source": "reports/design_space_framework_v1/high_complete_pool/positions.csv",
+      "destination": "results/reference/high_complete_pool/positions.csv",
+      "sha256": "08da1930b731a2f01ce0fdbf49153d971651108dc5b29584066b9a8ba113f8a3"
+    },
+    {
+      "source": "reports/design_space_framework_v1/high_complete_pool/coverage_vs_time.csv",
+      "destination": "results/reference/high_complete_pool/coverage_vs_time.csv",
+      "sha256": "ee5a8780a008eadf4cb3d8a6c3d662ffc651792e992c383393621d762c07632a"
+    },
+    {
+      "source": "reports/design_space_framework_v1/high_complete_pool/status.json",
+      "destination": "results/reference/high_complete_pool/status.json",
+      "sha256": "90b9a6b182ae791c81fd0e78af4ce5676810e61c7f9872f112fc866fb72e536d"
+    },
+    {
+      "source": "reports/design_space_framework_v1/high_complete_pool/workload_manifest.json",
+      "destination": "results/reference/high_complete_pool/workload_manifest.json",
+      "sha256": "be80e6b42008c6ba01866d4b8bac4014a843ce311486a103dbdd354468a81e49"
+    },
+    {
+      "source": "reports/design_space_framework_v1/high_complete_pool/context_metrics.csv",
+      "destination": "results/reference/high_complete_pool/context_metrics.csv",
+      "sha256": "5ba0b37ed5ec906689766309b575e99a564eb2ad72881acf05378aaeb50da461"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/isolated_iteration_3.csv",
+      "destination": "results/reference/coverage_size_experiment/isolated_iteration_3.csv",
+      "sha256": "8723695688a440afd2ff7b187c9b1d1ff9947439eaed3adec649936c2927875a"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/isolated_iteration_2.csv",
+      "destination": "results/reference/coverage_size_experiment/isolated_iteration_2.csv",
+      "sha256": "5d39396220f14a23b8d4a0060ac460bacf958883ff295c33a52872e06f934b8b"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/isolated_iteration_0.csv",
+      "destination": "results/reference/coverage_size_experiment/isolated_iteration_0.csv",
+      "sha256": "f1989b3e32441bacc6c00901a9ad48c13d0fb13b28328618c98e716d4cbfc399"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/summary.csv",
+      "destination": "results/reference/coverage_size_experiment/summary.csv",
+      "sha256": "443a2c45c29d0ea4c90ceddada2ba4e03c192e3c92b9d1f8437996428a0084c4"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/isolated_seed.csv",
+      "destination": "results/reference/coverage_size_experiment/isolated_seed.csv",
+      "sha256": "a98d0233278abb6b5be00dffbbc3844146f8d4c511be106fb161b2bf26256652"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/manifest.json",
+      "destination": "results/reference/coverage_size_experiment/manifest.json",
+      "sha256": "21e50cbbdac93d664f99e30ede1d4aa0076b713c5e89e6e990addff6a6dfca75"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/isolated_iteration_1.csv",
+      "destination": "results/reference/coverage_size_experiment/isolated_iteration_1.csv",
+      "sha256": "fe3e6ca8e4ce4ed5ccdc40b97e6c10c97bde9406cda3983d6377c3351a5e2b73"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/digit_9/completed.json",
+      "destination": "results/reference/coverage_size_experiment/digit_9/completed.json",
+      "sha256": "1dae03488f94eae6815cff1c268410b50665bf019c7b6247c55ad3c777c1dd90"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/digit_9/candidate_commands.csv",
+      "destination": "results/reference/coverage_size_experiment/digit_9/candidate_commands.csv",
+      "sha256": "512ec5ed983dfda5e68a42ada5d8b4d2b5a2c39502b96d72fa211b1ffae3c99c"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/digit_9/optimization_trace.csv",
+      "destination": "results/reference/coverage_size_experiment/digit_9/optimization_trace.csv",
+      "sha256": "e85c7780e1200ab3e2e32b33bc5f3a8e0456fe1d6dd64c6725705b222ccd80df"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/digit_9/all_contexts_with_split.csv",
+      "destination": "results/reference/coverage_size_experiment/digit_9/all_contexts_with_split.csv",
+      "sha256": "592da2b7dfefb5c7202368673ea681dbfedfb8e4ccda85c12cb6984a9d2a2664"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/three_glyphs_AMO/completed.json",
+      "destination": "results/reference/coverage_size_experiment/three_glyphs_AMO/completed.json",
+      "sha256": "dcfc4f34650fb3611aa7d334cdb51e7011a9d33394df003ab1a13622532d2dab"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/three_glyphs_AMO/candidate_commands.csv",
+      "destination": "results/reference/coverage_size_experiment/three_glyphs_AMO/candidate_commands.csv",
+      "sha256": "2462bd07899e62afb5f5e318d4bb242b5e2007b6c7d92af733161e6cd3a9725c"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/three_glyphs_AMO/optimization_trace.csv",
+      "destination": "results/reference/coverage_size_experiment/three_glyphs_AMO/optimization_trace.csv",
+      "sha256": "45267d142cc58265b1e854730635f149010d9681744906805b07bfeeed8415b1"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/three_glyphs_AMO/all_contexts_with_split.csv",
+      "destination": "results/reference/coverage_size_experiment/three_glyphs_AMO/all_contexts_with_split.csv",
+      "sha256": "1ff00c98a73786c5247508d323564864f6eb17b56bf971831af516c9e8a8bf1b"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/all_printable_ASCII/completed.json",
+      "destination": "results/reference/coverage_size_experiment/all_printable_ASCII/completed.json",
+      "sha256": "c2bdea22f118c624405b8ae531f2fd78dac38d52b682de9fb72b2d27729f45b8"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/all_printable_ASCII/candidate_commands.csv",
+      "destination": "results/reference/coverage_size_experiment/all_printable_ASCII/candidate_commands.csv",
+      "sha256": "b60b8fa1ce70a1ccbf3dd75fead06b8c6a49d5f9a92fcecdaf922ea33cf4ef3e"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/all_printable_ASCII/optimization_trace.csv",
+      "destination": "results/reference/coverage_size_experiment/all_printable_ASCII/optimization_trace.csv",
+      "sha256": "5b22edd1c9c8ad15f49e89217dbd32b183b1427b4f389e79b9205ca737cedcd1"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/all_printable_ASCII/all_contexts_with_split.csv",
+      "destination": "results/reference/coverage_size_experiment/all_printable_ASCII/all_contexts_with_split.csv",
+      "sha256": "3d4670dd2155b8f969bff1d5c107ee532cc63b5a16518f1a07035a2c05a991f4"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/digit_9/all_required_contexts/completed.json",
+      "destination": "results/reference/coverage_size_experiment/digit_9/all_required_contexts/completed.json",
+      "sha256": "7299f523c3014ed26e647f24883519a0edb609568276711ba3d65c830f56cae1"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/digit_9/all_required_contexts/positions.csv",
+      "destination": "results/reference/coverage_size_experiment/digit_9/all_required_contexts/positions.csv",
+      "sha256": "47116d6dd18dd862ba0ca0df8f1dbfcd7e3ff02ff4e160eaa391e4309ea75dc2"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/digit_9/all_required_contexts/coverage_vs_time.csv",
+      "destination": "results/reference/coverage_size_experiment/digit_9/all_required_contexts/coverage_vs_time.csv",
+      "sha256": "ecf67db2b9d63540eb83ef46b024a2f6c4068d1cc65cbb8e13e678184e8098bf"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/digit_9/all_required_contexts/status.json",
+      "destination": "results/reference/coverage_size_experiment/digit_9/all_required_contexts/status.json",
+      "sha256": "7c500853fcc6875477a362c7dbeae455bbde32ed8bc9f1c8200a90080fc93845"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/digit_9/all_required_contexts/context_metrics.csv",
+      "destination": "results/reference/coverage_size_experiment/digit_9/all_required_contexts/context_metrics.csv",
+      "sha256": "f732a5dc224f08181e11f13d54ec17f0b8c8a9891bcbb0199e86de19949f4625"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/three_glyphs_AMO/all_required_contexts/completed.json",
+      "destination": "results/reference/coverage_size_experiment/three_glyphs_AMO/all_required_contexts/completed.json",
+      "sha256": "dd135d82b507f80b55941b5340d9e7e7b1a751b9aef24d2eecd6ff80a4dd2905"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/three_glyphs_AMO/all_required_contexts/positions.csv",
+      "destination": "results/reference/coverage_size_experiment/three_glyphs_AMO/all_required_contexts/positions.csv",
+      "sha256": "b5b7a3041456befccca9fbfc782cbad103785f3e26f5d678cda138a864a70166"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/three_glyphs_AMO/all_required_contexts/coverage_vs_time.csv",
+      "destination": "results/reference/coverage_size_experiment/three_glyphs_AMO/all_required_contexts/coverage_vs_time.csv",
+      "sha256": "2a24d6cf2faaad1bf09a383f79f1ad721eb27f26ab7b70aa737fc1dbd598f262"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/three_glyphs_AMO/all_required_contexts/status.json",
+      "destination": "results/reference/coverage_size_experiment/three_glyphs_AMO/all_required_contexts/status.json",
+      "sha256": "07f088ea27bd6857e183bdcb3384d8edf33c0b9527e5ed3442394a0945bc23dd"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/three_glyphs_AMO/all_required_contexts/context_metrics.csv",
+      "destination": "results/reference/coverage_size_experiment/three_glyphs_AMO/all_required_contexts/context_metrics.csv",
+      "sha256": "acb7cc759ccf524ad686c6de48aa93396ec1981fe63992907ac837a4dc937323"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/all_printable_ASCII/all_required_contexts/completed.json",
+      "destination": "results/reference/coverage_size_experiment/all_printable_ASCII/all_required_contexts/completed.json",
+      "sha256": "ba17c28f622c19a90960645dae437cfcb91970eeae6a80f9b053629e4c821a3f"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/all_printable_ASCII/all_required_contexts/positions.csv",
+      "destination": "results/reference/coverage_size_experiment/all_printable_ASCII/all_required_contexts/positions.csv",
+      "sha256": "951629f241aadab5302cfc02158a7d2d2710a565381b39a95ebded8d29bcf6e8"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/all_printable_ASCII/all_required_contexts/coverage_vs_time.csv",
+      "destination": "results/reference/coverage_size_experiment/all_printable_ASCII/all_required_contexts/coverage_vs_time.csv",
+      "sha256": "856ce038579e6d0790c671ece31e64c74dd4f83af1f372f0efd945aa7b2a4f0d"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/all_printable_ASCII/all_required_contexts/status.json",
+      "destination": "results/reference/coverage_size_experiment/all_printable_ASCII/all_required_contexts/status.json",
+      "sha256": "45d4d6666cb04a4a27fadde06c54291d19030b9c1c2682654c52e3cb0629cff0"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coverage_size_experiment/all_printable_ASCII/all_required_contexts/context_metrics.csv",
+      "destination": "results/reference/coverage_size_experiment/all_printable_ASCII/all_required_contexts/context_metrics.csv",
+      "sha256": "af57ae634014e6af77faddd2192b4c27f5d446585068199ed65eec85c7f0317b"
+    },
+    {
+      "source": "reports/design_space_framework_v1/public_synthetic/environment.json",
+      "destination": "results/reference/public_synthetic/environment.json",
+      "sha256": "06f60047b3d64e43d866b5fadca43ca27cefe1b235879eac99500d5d5dab6f98"
+    },
+    {
+      "source": "reports/design_space_framework_v1/public_synthetic/analytic_verification.csv",
+      "destination": "results/reference/public_synthetic/analytic_verification.csv",
+      "sha256": "a45978622995465055154ee92ae4eb12169814878d68f89ba1646cef6a087100"
+    },
+    {
+      "source": "reports/design_space_framework_v1/public_synthetic/README.md",
+      "destination": "results/reference/public_synthetic/README.md",
+      "sha256": "4357e3ac652c5cb7e3f62ca630f96e775f0f556b19e367c40887c85d11908b73"
+    },
+    {
+      "source": "reports/design_space_framework_v1/time_step_probe/completed.json",
+      "destination": "results/reference/time_step_probe/completed.json",
+      "sha256": "f7e9e0c0c8c3223472258201ff314f0e2feff6cd2c821716c5ba5899e2427175"
+    },
+    {
+      "source": "reports/design_space_framework_v1/time_step_probe/positions.csv",
+      "destination": "results/reference/time_step_probe/positions.csv",
+      "sha256": "ad9eb38270df620193e35060e9d5015db60464f686886134038e3af5ae60dab4"
+    },
+    {
+      "source": "reports/design_space_framework_v1/time_step_probe/summary.csv",
+      "destination": "results/reference/time_step_probe/summary.csv",
+      "sha256": "243bdd3f9d8a48c860d1a4c64a38fb98f7439c961ffaf70b5550d55b9b3a541c"
+    },
+    {
+      "source": "reports/design_space_framework_v1/benchmark_high_gpu_endpoints_b64.json",
+      "destination": "results/reference/benchmark_high_gpu_endpoints_b64.json",
+      "sha256": "9a47246606116e419e0c76e510760c034b22f16fb5a49a5da20a613f49bca540"
+    },
+    {
+      "source": "reports/design_space_framework_v1/workstation_environment.json",
+      "destination": "results/reference/workstation_environment.json",
+      "sha256": "56325524e6caffc169f6a324901aebdecbeccf79d455294f0df3441f4a30e0f3"
+    },
+    {
+      "source": "reports/design_space_framework_v1/experimental_per_glyph_metrics.csv",
+      "destination": "results/reference/experimental_per_glyph_metrics.csv",
+      "sha256": "f99c29799c8e73877d1917d4b9fb3cfd1299dcc0d800f3f4a1626f5549434cba"
+    },
+    {
+      "source": "reports/design_space_framework_v1/experimental_file_versions.csv",
+      "destination": "results/reference/experimental_file_versions.csv",
+      "sha256": "d63caf4779b2a95228dd409b75a1c5cf4bb407f758bd32a15af67de113754394"
+    },
+    {
+      "source": "reports/design_space_framework_v1/benchmark_low_cpu_endpoints_b1.json",
+      "destination": "results/reference/benchmark_low_cpu_endpoints_b1.json",
+      "sha256": "91786a2bbce774c1317ff288f69d41c10d47b1c1b177d251251f07f1ae37f8e6"
+    },
+    {
+      "source": "reports/design_space_framework_v1/experimental_paired_dots_by_glyph.csv",
+      "destination": "results/reference/experimental_paired_dots_by_glyph.csv",
+      "sha256": "f42de8af7bd3af137237795b15daf680d0ba0d995b7e26a83672cd9622781ca4"
+    },
+    {
+      "source": "reports/design_space_framework_v1/experimental_revision_relationships.csv",
+      "destination": "results/reference/experimental_revision_relationships.csv",
+      "sha256": "526d69d36a5815b461f4d99d80b4dd2ef91ea93d8876ebacf78d5cf4d55ef463"
+    },
+    {
+      "source": "reports/design_space_framework_v1/experimental_sampling_protocol.json",
+      "destination": "results/reference/experimental_sampling_protocol.json",
+      "sha256": "6b6173063a986a0b69eb45e4775f99b81f12d45c66a9cd0d321a22903b25113e"
+    },
+    {
+      "source": "reports/design_space_framework_v1/benchmark_low_cpu_endpoints_b64.json",
+      "destination": "results/reference/benchmark_low_cpu_endpoints_b64.json",
+      "sha256": "cfb131b7075ad4be741ba1875be2b5af91592b90cee19b55012b75a9f3110881"
+    },
+    {
+      "source": "reports/design_space_framework_v1/DEVELOPMENT_DELIVERABLES.md",
+      "destination": "results/reference/DEVELOPMENT_DELIVERABLES.md",
+      "sha256": "d1d6a5dacedb1c72df9335c00327b8c1777b3152068f605de58a325b8724b904"
+    },
+    {
+      "source": "reports/design_space_framework_v1/context_pool_audit.json",
+      "destination": "results/reference/context_pool_audit.json",
+      "sha256": "c0b69d52f252f4e351b03e9fe99ac6daee149bade115f385cb6f5574238f97a8"
+    },
+    {
+      "source": "reports/design_space_framework_v1/benchmark_high_cpu_endpoints_b1.json",
+      "destination": "results/reference/benchmark_high_cpu_endpoints_b1.json",
+      "sha256": "119f419929f9e108c7a1c7cfaa4a2bad1215d20af14e659d04de4f857fc93de6"
+    },
+    {
+      "source": "reports/design_space_framework_v1/benchmark_low_cpu_full_b1.json",
+      "destination": "results/reference/benchmark_low_cpu_full_b1.json",
+      "sha256": "6c8d69201efa89e84488ba9488f5838335f919b20f39146fc61cdacf685ca365"
+    },
+    {
+      "source": "reports/design_space_framework_v1/REVIEWER_EVIDENCE_MAP.md",
+      "destination": "results/reference/REVIEWER_EVIDENCE_MAP.md",
+      "sha256": "ae05702e025f3901447a8c66806312ccb7385e0ae1a905d57f27221ad61a5c37"
+    },
+    {
+      "source": "reports/design_space_framework_v1/INDUSTRIAL_EVALUATION_PROTOCOL.md",
+      "destination": "results/reference/INDUSTRIAL_EVALUATION_PROTOCOL.md",
+      "sha256": "dbe6a59554139496ef35c813496dad8ae5058073eb8f1870d47eaae43f4c0f7d"
+    },
+    {
+      "source": "reports/design_space_framework_v1/coordinate_visualization_manifest.json",
+      "destination": "results/reference/coordinate_visualization_manifest.json",
+      "sha256": "3d599d1bd3abd680d22ea21f9c308760d85c262d357eba4fb7af52c3d646eba8"
+    },
+    {
+      "source": "reports/design_space_framework_v1/kernel_parity_checks.json",
+      "destination": "results/reference/kernel_parity_checks.json",
+      "sha256": "dbb5cc7d3f6dabb51d3f46e503973c82e081a4de12df2fcce3800105de7eecfd"
+    },
+    {
+      "source": "reports/design_space_framework_v1/native_case_parity.json",
+      "destination": "results/reference/native_case_parity.json",
+      "sha256": "d4c897dd4894fb487f76b4684dc4d171313fbe26badca193d7f16d3ef8f5c0f6"
+    },
+    {
+      "source": "reports/design_space_framework_v1/benchmark_low_gpu_full_b1.json",
+      "destination": "results/reference/benchmark_low_gpu_full_b1.json",
+      "sha256": "37a3070f33e6781f9bf68bd3fe8dbdcf94d3ce17aa9bbd816370b64ea7789ae2"
+    },
+    {
+      "source": "reports/design_space_framework_v1/experimental_glyph_summary.csv",
+      "destination": "results/reference/experimental_glyph_summary.csv",
+      "sha256": "9e439292bd737c7a4135c5b9edfe8c1735ecfeb5794e11628031c3ca33ab8de8"
+    },
+    {
+      "source": "reports/design_space_framework_v1/benchmark_low_cpu_endpoints_b8.json",
+      "destination": "results/reference/benchmark_low_cpu_endpoints_b8.json",
+      "sha256": "b4bad4ad113c7feaac59165d9a65bf27034e9c4d6811d9c2c0678e9ea9fec853"
+    },
+    {
+      "source": "reports/design_space_framework_v1/benchmark_low_gpu_endpoints_b8.json",
+      "destination": "results/reference/benchmark_low_gpu_endpoints_b8.json",
+      "sha256": "364f7613189232db0fde1d57cee339665c927bb12d0ce777235e4f5b7b5722fd"
+    },
+    {
+      "source": "reports/design_space_framework_v1/README.md",
+      "destination": "results/reference/README.md",
+      "sha256": "20f9d6b0b95374010b10154f6c89c1601577e851c5b31b97deb2b196d12b44e0"
+    },
+    {
+      "source": "reports/design_space_framework_v1/benchmark_summary.csv",
+      "destination": "results/reference/benchmark_summary.csv",
+      "sha256": "7cb5bafdf7b388c9659359080fec096e0cd2f42c5eef9c677c71e8986c7c065b"
+    },
+    {
+      "source": "reports/design_space_framework_v1/benchmark_low_gpu_endpoints_b64.json",
+      "destination": "results/reference/benchmark_low_gpu_endpoints_b64.json",
+      "sha256": "f2ca8a463565a5d2ab70263affee5fe98b3bf93ad2885ef71a27ca8b923c0b39"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/per_stroke_metrics.csv",
+      "destination": "results/reference/physical_assessment/per_stroke_metrics.csv",
+      "sha256": "22c760ec6ed69e7d89a572e5e3015aec9e8f30ef19d6258e064752b9284c5b4b"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/frozen_experimental_benchmark.csv",
+      "destination": "results/reference/physical_assessment/frozen_experimental_benchmark.csv",
+      "sha256": "f6d8f8b115973e281f8ee7e66ccd226fe939125bb0fc5d5c365dc28789390409"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/target_quality_metrics.csv",
+      "destination": "results/reference/physical_assessment/target_quality_metrics.csv",
+      "sha256": "25ec1cba07f02dca9a1eacaac69c2c160ea5eb3801b82eed65a3752344f7ffd8"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/d16g0_lr_paired_dots.csv",
+      "destination": "results/reference/physical_assessment/d16g0_lr_paired_dots.csv",
+      "sha256": "369a8ed75f9ab67fc1b4a78ef06f129e7c8839fa88475347796259620970bf0d"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/paired_dots.csv",
+      "destination": "results/reference/physical_assessment/paired_dots.csv",
+      "sha256": "a9ed201d145e9683a7776ca4beb43181923d71c513da72eb39f4362fa9cb09e2"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/data_audit.csv",
+      "destination": "results/reference/physical_assessment/data_audit.csv",
+      "sha256": "8fd3d8a382c17f504c77b61b716b911af24aee8878da24387a02361232f0850b"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/gnn_prediction_template.csv",
+      "destination": "results/reference/physical_assessment/gnn_prediction_template.csv",
+      "sha256": "e022f50a4813273125b4149f737ce7dd878ee4a918f573b5304e71de95028669"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/d37g21_lr_paired_dots.csv",
+      "destination": "results/reference/physical_assessment/d37g21_lr_paired_dots.csv",
+      "sha256": "0fede42498fe7bc17f28baab1ea2384bcb5068355db0bbeca5193f49acc2e25c"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/relative_coordinate_diagnostics.csv",
+      "destination": "results/reference/physical_assessment/relative_coordinate_diagnostics.csv",
+      "sha256": "b1f288b9836f81bd2c99a468e5987f8a05709f94c493919e38f7513b4b166e4a"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/simulation_vs_measurement_metrics.csv",
+      "destination": "results/reference/physical_assessment/simulation_vs_measurement_metrics.csv",
+      "sha256": "20e25f0c33fe80ce53e78b72cabc25e562d7342533a6207300a7f19db6562118"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/horizontal_error_along_message.csv",
+      "destination": "results/reference/physical_assessment/horizontal_error_along_message.csv",
+      "sha256": "ccece73f149183216eca05c11f0c5fd36698fbea2c377b1a0007d7a3b8e6c78e"
+    },
+    {
+      "source": "reports/physical_validation_native75_v4/per_drop_metrics.csv",
+      "destination": "results/reference/physical_assessment/per_drop_metrics.csv",
+      "sha256": "bb8922018e3260a7d5ee904b33ebb44796e19d5fecf35a7c0fc174787b15cc48"
+    },
+    {
+      "source": "reports/revised_print_inspection_v3/raw/d37g21_lr_revised_supplied.csv",
+      "destination": "inputs/cases/low/measured_coordinates.csv",
+      "sha256": "e8f384afbfb78c1e42de816801205a316b8ba30b2bbbede81ca7f1c7efebba1e"
+    },
+    {
+      "source": "reports/revised_print_inspection_v3/raw/d16g0_lr_revised_supplied.csv",
+      "destination": "inputs/cases/high/measured_coordinates.csv",
+      "sha256": "3b10aefbb5d1df930e8e98d5ea4885b52d4695a3148f432fd92910009bbc4ba2"
+    },
+    {
+      "source": "papers/geometry_conditioned_raster_discovery/main.pdf",
+      "destination": "paper/main.pdf",
+      "sha256": "50d579a163fdbaa6b499518da5f0c50e45bf7e885675024e8c8053948c565824"
+    },
+    {
+      "source": "scripts/characterize_framework_pool.py",
+      "destination": "workflows/evaluate_context_pool.py",
+      "sha256": "89e85acacf03e1a62887e51ef50ca934a21c29fc5287a60199f3bebfab884c06"
+    },
+    {
+      "source": "scripts/benchmark_framework_engine.py",
+      "destination": "workflows/benchmark_engine.py",
+      "sha256": "64092907720bb1dd40452a391904ce63cce7ae1af145927c18d7993c4911f5ba"
+    },
+    {
+      "source": "scripts/fit_framework_coverage_experiment.py",
+      "destination": "workflows/fit_shared_tables.py",
+      "sha256": "140ef780b5dbbba0c58488c0fd1d0ffb10581e5303d3246dc108712453b5ce1c"
+    },
+    {
+      "source": "scripts/run_public_uniform_field_benchmark.py",
+      "destination": "workflows/verify_uniform_field.py",
+      "sha256": "1b4c7bc4a198cd32cbb64b2acb6c399f97ac46056906c8e66270e6530d6ac80e"
+    },
+    {
+      "source": "results/no_guard_sequence_search_large_v1/evaluations.csv",
+      "destination": "results/reference/structure_search/evaluations.csv",
+      "sha256": "5b411180c247b752bc87bc541200bb213d436e6351a2421af51411d8b75044af"
+    },
+    {
+      "source": "results/no_guard_sequence_search_large_v1/completed.json",
+      "destination": "results/reference/structure_search/completed.json",
+      "sha256": "68c171b510902b2b24c0eeeccb38efad2ba6775dedd0bf02997c2706815625c1"
+    },
+    {
+      "source": "results/no_guard_sequence_search_large_v1/manifest.json",
+      "destination": "results/reference/structure_search/manifest.json",
+      "sha256": "8048d635d924b068a608f9dbf04b3cb19447aa5c0a708d8f14fbae4a303a4a70"
+    },
+    {
+      "source": "results/no_guard_sequence_search_large_v1/surrogate_manifest.json",
+      "destination": "results/reference/structure_search/surrogate_manifest.json",
+      "sha256": "591168d60adea2d1b0985f6f4b9b9c04b4aa43d5466db7023ac4d9209d7eb68a"
+    },
+    {
+      "source": "results/no_guard_sequence_search_large_v1/selected_orders.csv",
+      "destination": "results/reference/structure_search/selected_orders.csv",
+      "sha256": "1954871e1a191ddc040aeb218660bb6af098163c886e05330775489a5ae7bdbd"
+    },
+    {
+      "source": "results/no_guard_sequence_search_large_v1/surrogate_leaderboard.csv",
+      "destination": "results/reference/structure_search/surrogate_leaderboard.csv",
+      "sha256": "8432f532d97e28d81dbd539bbeadff8d5c1180de3c04bf543f864d5f234e3a51"
+    },
+    {
+      "source": "results/no_guard_sequence_search_large_v1/shortlist.json",
+      "destination": "results/reference/structure_search/shortlist.json",
+      "sha256": "6e9d18fa6a4e20d17f3b33a84dd1ef8f948c94f10d44ed78f9980f45dd710e3a"
+    },
+    {
+      "source": "results/no_guard_nonlinear_sequence_pilot_v1/ascending/completed.json",
+      "destination": "inputs/structure_search/seeds/ascending/completed.json",
+      "sha256": "b09cb92dc2570fded649124a34306e9dcbbf4588fe79ea3a4909865174b1521b"
+    },
+    {
+      "source": "results/no_guard_nonlinear_sequence_pilot_v1/ascending/flights/b5f054eb1c238618550a85da/positions.csv",
+      "destination": "inputs/structure_search/seeds/ascending/flights/b5f054eb1c238618550a85da/positions.csv",
+      "sha256": "9c7610d6d29bc9ac31f492952bcfdba6349efcd906b709f8c273864fa1e1e5fd"
+    },
+    {
+      "source": "results/no_guard_nonlinear_sequence_pilot_v1/reverse_flight_order/completed.json",
+      "destination": "inputs/structure_search/seeds/reverse_flight_order/completed.json",
+      "sha256": "9c835947eaa682f2c519297d7f91971d3ac0100c2bb09288715934cc7bce47fe"
+    },
+    {
+      "source": "results/no_guard_nonlinear_sequence_pilot_v1/reverse_flight_order/flights/62e799be8a00ae1fb8469a70/positions.csv",
+      "destination": "inputs/structure_search/seeds/reverse_flight_order/flights/62e799be8a00ae1fb8469a70/positions.csv",
+      "sha256": "9d69f4f7de89fca8c21eda6ed841aafb68420d29ef4421817785fe7aefe18478"
+    },
+    {
+      "source": "results/no_guard_nonlinear_sequence_pilot_v1/bit_reversal/completed.json",
+      "destination": "inputs/structure_search/seeds/bit_reversal/completed.json",
+      "sha256": "e1565081cc697a733fa118655438178003ce8f4c7515ddaf661036db8b3c80d9"
+    },
+    {
+      "source": "results/no_guard_nonlinear_sequence_pilot_v1/bit_reversal/flights/7e9ae0bf8f26a49ea1838a60/positions.csv",
+      "destination": "inputs/structure_search/seeds/bit_reversal/flights/7e9ae0bf8f26a49ea1838a60/positions.csv",
+      "sha256": "4d54f1a2c942b19efcca24b5ac715bf10a1e1b95448be81783d7ef6126204591"
+    },
+    {
+      "source": "results/no_guard_nonlinear_sequence_pilot_v1/low_shear_sample/completed.json",
+      "destination": "inputs/structure_search/seeds/low_shear_sample/completed.json",
+      "sha256": "31492d7a6337026984bfbc9e62d0d27e26bdd5efe37b9ceb49a9d07b3d685c55"
+    },
+    {
+      "source": "results/no_guard_nonlinear_sequence_pilot_v1/low_shear_sample/flights/b5c1d7f906a533d3cd74750b/positions.csv",
+      "destination": "inputs/structure_search/seeds/low_shear_sample/flights/b5c1d7f906a533d3cd74750b/positions.csv",
+      "sha256": "ae2448abbf7f41f91c464d2ce16b74be88e8576488ffe0c964f3fda3fc5f71d5"
+    }
+  ]
+}

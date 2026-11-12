@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+results/generated/
+results/smoke/
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.xdv
+paper/source.zip

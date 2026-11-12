@@ -1,0 +1,23 @@
+{
+  "case": "high",
+  "device": "cuda:0",
+  "platform": "gpu",
+  "mode": "endpoints",
+  "batch": 64,
+  "native_steps": 8001,
+  "compile_s": 1.0041134292259812,
+  "first_execution_s": 6.22622300311923,
+  "warm_execution_s": [
+    6.224270856007934,
+    6.223788985051215
+  ],
+  "warm_median_s": 6.224029920529574,
+  "warm_cases_per_s": 10.28272691763579,
+  "device_to_host_s": 0.0014861496165394783,
+  "output_bytes": 211200,
+  "synchronization": "jax.block_until_ready on complete result",
+  "scope": "Fixed physical configuration and capacity; dynamic waveform-derived charges and coalescence target masks; compilation and transfer reported separately",
+  "python": "3.12.3",
+  "jax": "0.11.1",
+  "model_sha256": "a5554064a76cd03fb1f19fd60d5a8f6b50bdabd68023ab85a3be32bd43812d57"
+}

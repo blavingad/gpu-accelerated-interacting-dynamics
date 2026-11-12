@@ -1,0 +1,42 @@
+\section{Numerical implementation and GPU execution}
+\subsection{Time stepping and event accuracy}
+
+The particle solver uses fixed-size arrays, release/activity masks, and a compiled integration loop. At each step it updates mass, evaluates forces, advances velocity, then advances position using the updated velocity:
+\begin{equation}
+ \vect v^{n+1}=\vect v^n+\Delta t\,\vect a^n,\qquad
+ \vect r^{n+1}=\vect r^n+\Delta t\,\vect v^{n+1}.
+\end{equation}
+This is a first-order velocity-first Euler update, not a high-order CFD integration scheme. Sequential releases are quantized to $\operatorname{round}(t_{\mathrm{release}}/\Delta t)$. Native landing is recorded at the first step beyond the substrate plane; gutter reporting interpolates the crossing. Consequently step-size sensitivity is especially important for arrival-time and sub-10-micrometer placement claims. The substrate travels $v_s\Delta t$ per integration step, so time-step selection also sets a spatial event-resolution scale.
+
+The native output includes positions, velocities, mass, radius, charge, individual force terms, directed Coulomb and wake labels, activity and lineage. Dense pair arrays scale as $O(P^2)$ per step for $P$ allocated particles. Recording all pair labels for all steps can dominate memory; capture intervals and event masks must be reported when comparing runtime.
+
+The implementation uses JAX for compilation and accelerator execution \citep{jax,jaxjit}. The inverse-design procedure uses finite-difference sensitivities. Contact switches, nearest-neighbor selection, charge thresholds, release quantization, and substrate crossing make a blanket claim of a smooth, end-to-end differentiable raster optimizer inappropriate.
+
+
+\subsection{Regular state and masked event handling}
+Each simulation uses allocated arrays for position, velocity, mass, radius, charge, release time, and event state. A release mask selects emitted particles and an activity mask selects those still in flight. Unreleased, collected, deposited, or merged particles remain represented by masked array entries. This avoids dynamically resizing the particle set during compiled integration.
+
+At each step, the operations are: update particle properties; interpolate the external field; evaluate pairwise separations and electric forces; determine eligible wake sources; evaluate carrier velocity and drag; advance state; and apply event rules. The reference implementation uses dense pair arrays, giving $O(P^2)$ pair work per step. GPU execution parallelizes this work; it does not change the quadratic asymptotic complexity.
+
+\subsection{JIT compilation as an enabler, not the scientific contribution}
+The implementation expresses the time integrator as a JIT-compiled scan. JAX traces the array program and lowers eligible operations to compiled accelerator execution \citep{jax,jaxjit}. Moving the repeated force and state-update sequence out of an interpreted loop reduces orchestration overhead and exposes parallel array operations to the compiler. The methodological contribution is independent of this specific compiler: it is the regular state and field--interaction decomposition that makes the formulation suitable for such execution.
+
+Compilation is specialized to array shapes, types, static settings, and program structure. A changed particle capacity, step count, or static branch can require a new executable. Reuse depends on how the simulation callable and its inputs are organized; one must not assume that every new structural candidate shares an already compiled kernel. The current implementation is GPU-capable, while several archived search campaigns were executed on CPU. The new synchronized matched-workload benchmarks in Sec.~\ref{sec:framework_evidence} measure CPU/GPU performance separately from the archived searches.
+
+\subsection{Performance accounting and memory}
+For an inverse-design campaign, report
+\begin{equation}
+ T_{\mathrm{campaign}}=T_{\mathrm{field}}+T_{\mathrm{compile}}+
+    \sum_{k=1}^K\left(T_{\mathrm{flight},k}+T_{\mathrm{transfer},k}
+                           +T_{\mathrm{record},k}+T_{\mathrm{search},k}\right).
+\end{equation}
+Cold compilation, warmed execution, device transfers, and recording are different costs. Accelerator timings require synchronization at completion. Saving directed pair forces at every time step introduces $O(N_tP^2)$ output volume; this can dominate memory and transfer cost even when particle state is small. Sparse recording intervals, tiled pair evaluation, and neighbor lists are possible scalability extensions, but are not presumed to exist in the dense reference kernel.
+
+A valid performance comparison uses identical force laws, particle counts, integration steps, event rules, and numerical precision. GPU acceleration must not be credited for changing the physical problem or omitting required output. No quantitative acceleration factor is inferred from the availability of JIT compilation alone.
+
+\subsection{Reusable evaluation kernels and verification}
+Dynamic charge vectors and contact-eligibility masks reuse one compiled executable at fixed capacity and physical configuration. Endpoint assessment retains landing, clearance and lineage diagnostics without materializing dense trajectories. A history-recording mode remains available for trajectory and force supervision. An inactive-state termination condition skips only post-flight steps after all particles are inactive. Reference-kernel tests check preserved full histories and event diagnostics; waveform response matrices are checked against the sequential charging routine.
+
+A public synthetic uniform-field case isolates time integration and the implemented mass-loss law against an analytic solution, without industrial geometry or controller data. This verifies a numerical limit rather than the complete physical model. Cross-backend single-precision event timing is not bitwise invariant: two matched high-speed endpoints cross in an adjacent native time bin, producing a maximum $3.38\um$ deflection difference, with identical landed/merged flags. Field-grid refinement and broader operating-condition studies remain necessary for a general numerical uncertainty claim.
+
+The targeted industrial step-size probe uses two event-sensitive contexts and two reference contexts with unchanged commands. Against the 0.25-microsecond numerical reference, the maximum endpoint differences are 17.33 micrometers at 0.5 microseconds, 19.52 micrometers at 1 microseconds. This is a targeted sensitivity check, not global convergence proof. Sub-10-micrometer optimization residuals describe the discrete model objective and do not certify continuous-time placement accuracy; release and event quantization must be refined before making such a claim.

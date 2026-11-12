@@ -1,0 +1,9 @@
+{
+  "studies": {
+    "ablation": "1234e0815373ccdce8af27f054873b540e8b4f2cb661d0713165a7e6bbbf4361",
+    "integrators": "aee0965729130138b59742e0e72f0f8370b3aede77996980d33f2e59774fe962",
+    "benchmarks": "4fad576d6904e0368bc56f8d6f6379c06af1bf74f03de72f5474ebd6edf2c2d9"
+  },
+  "conclusions_not_used_to_select_results": true,
+  "source_kernel_sha256": "c3ca8445c6c2b81c9ed724a07d3c3a6aaf76cf505404811f96923c49de549e0b"
+}

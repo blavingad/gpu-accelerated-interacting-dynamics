@@ -1,0 +1,42 @@
+[
+  {
+    "case": "low",
+    "contexts": 644,
+    "current_only_contexts": 235,
+    "known_keys": 540,
+    "binary_capacity": 3312,
+    "blank_older_history": true,
+    "following_emitted": false,
+    "printed_command_min": 230,
+    "printed_command_max": 1023,
+    "breakup_phase": 0.5,
+    "guard_command_compensation": false,
+    "consecutive_print_command_compensation": false,
+    "neighbor_induction_coefficients": [
+      0.1,
+      0.02
+    ],
+    "waveform_state_continuous": true,
+    "phase_anchor": "Blank/full simulation reference, not fitted to measured coordinates"
+  },
+  {
+    "case": "high",
+    "contexts": 644,
+    "current_only_contexts": 235,
+    "known_keys": 540,
+    "binary_capacity": 3312,
+    "blank_older_history": true,
+    "following_emitted": false,
+    "printed_command_min": 230,
+    "printed_command_max": 1023,
+    "breakup_phase": 0.5,
+    "guard_command_compensation": false,
+    "consecutive_print_command_compensation": false,
+    "neighbor_induction_coefficients": [
+      0.1,
+      0.02
+    ],
+    "waveform_state_continuous": true,
+    "phase_anchor": "Blank/full simulation reference, not fitted to measured coordinates"
+  }
+]

@@ -1,0 +1,106 @@
+{
+  "fingerprint": "6a8658919be1f2b2cdb855f1edda94452e5507e8b1fff47de1c683dd5add0269",
+  "declared_utc": "2026-11-11T09:58:37.955757+00:00",
+  "study": "shared_force_euler_rk4_v1",
+  "cases": {
+    "low": [
+      {
+        "label": "isolated_least",
+        "previous_mask": 0,
+        "current_mask": 1
+      },
+      {
+        "label": "full_blank_history",
+        "previous_mask": 0,
+        "current_mask": 65535
+      },
+      {
+        "label": "full_previous_current",
+        "previous_mask": 65535,
+        "current_mask": 65535
+      },
+      {
+        "label": "worst_frozen_context",
+        "previous_mask": 24576,
+        "current_mask": 49152
+      }
+    ],
+    "high": [
+      {
+        "label": "isolated_least",
+        "previous_mask": 0,
+        "current_mask": 1
+      },
+      {
+        "label": "full_blank_history",
+        "previous_mask": 0,
+        "current_mask": 65535
+      },
+      {
+        "label": "full_previous_current",
+        "previous_mask": 65535,
+        "current_mask": 65535
+      },
+      {
+        "label": "worst_frozen_context",
+        "previous_mask": 0,
+        "current_mask": 65024
+      }
+    ]
+  },
+  "methods": [
+    "euler",
+    "rk4"
+  ],
+  "timesteps_us": [
+    1.0,
+    0.5,
+    0.25
+  ],
+  "finest_reference": {
+    "method": "rk4",
+    "dt_us": 0.125,
+    "exact_truth": false
+  },
+  "release_schedule": "All refinements use the exact same release times rounded once to the native 1-us grid; charging and guards unchanged",
+  "events": "Same grid-boundary releases, merge eligibility/pairing, collection and landing policy; no event root solver",
+  "sampling": "Common fixed axial planes, linearly interpolated within each native step; samples spanning merges excluded; denominators retained",
+  "force_law": "Identical field, pair/wake/drag/carrier closures; RK4 advances position, velocity and mass jointly; coefficients of inactive stochastic flow remain unused",
+  "device": "gpu",
+  "precision": "float32 particle state; NumPy float64 actuation preparation",
+  "sources": {
+    "src/vdcr/jax_solver.py": "c3ca8445c6c2b81c9ed724a07d3c3a6aaf76cf505404811f96923c49de549e0b",
+    "src/vdcr/config.py": "fc6569a1c98d594bebcd35aabe4c890a4557df815331bb0175ee5c7e79fb8bc2",
+    "src/vdcr/electric_field.py": "aa2c38e26cddb5d1d31869e37e58daf38897549bcea4b2853adf525a9a56f5b2",
+    "src/vdcr/charging.py": "568c9e17cfe997bf4780bdfc4900013c474aa0ec3f14ce5ff1d7f11b51e84df7",
+    "src/vdcr/charging_sequence.py": "a608ee3092e5b47d51a4bdbcbce898301ac25495a55f395145897da15d258e10",
+    "src/vdcr/charge_explorer.py": "31e9843959b6458c7e6c558c57ad7f41ad43b3155ffc2d876300dfc761215200",
+    "src/vdcr/framework_workload.py": "9192b4f7e93570066ce4269631e8c30c6b886dcac3282a1f76b1f3b50a5f6d76",
+    "src/vdcr/framework_campaign.py": "15ec534023fb1c4b80917a542a5a9edd2d99dbcbdbda7e5aa8a67f3001bff87e",
+    "workflows/_study_common.py": "b25dd7ce182ed2e9d9ed576704df05791a2fc78bd7fa60fd82f581e1e4ac4ffa",
+    "workflows/run_integrator_comparison.py": "3fdabcdfd0533deae2e167c030505e5d0a2572051035fbceb5f3e8e7f67b9316"
+  },
+  "selection_source_sha256": {
+    "low": "05d47d11a53adf8d07dc6047c0f514e361f169b18470a2089a1b21bc7cd2ea8b",
+    "high": "5ba0b37ed5ec906689766309b575e99a564eb2ad72881acf05378aaeb50da461"
+  },
+  "inputs": {
+    "low": {
+      "inputs/electric_field.npz": "4772e6c960e091cd1723e6b740db9776313b08c66b521f3a0e1483885d4c832f",
+      "inputs/quality_policy.json": "9ba516fa15087d141635f4f046007acc91d5a507b79f040c2ead7dd5c3f429e7",
+      "inputs/cases/low/physical_configuration.json": "a420c632af8baee3479a6a52dd44294f1ce51169f9579d3e1adb4ad6e351dfc4",
+      "inputs/cases/low/charge_parameters.json": "b10052ac78bb28d0b7e97fa0d965248c4dc8498ff782fe84c1a72b0b96672058",
+      "inputs/cases/low/printer_commands.csv": "6a7846fd91671057c36b8a23d3347a20f5b49ce46386f864363bc25e1d414553",
+      "inputs/cases/low/charge_lookup.json": "50937a48518ebd0aeffe213ddcde0b8a48527847cd4abacfc07d9696177f6022"
+    },
+    "high": {
+      "inputs/electric_field.npz": "4772e6c960e091cd1723e6b740db9776313b08c66b521f3a0e1483885d4c832f",
+      "inputs/quality_policy.json": "9ba516fa15087d141635f4f046007acc91d5a507b79f040c2ead7dd5c3f429e7",
+      "inputs/cases/high/physical_configuration.json": "e2e991627ad654dee5d60588026a7bcbad9041e7f1469a9ed3da20038b6322e1",
+      "inputs/cases/high/charge_parameters.json": "e4c351097cfe5a3d8197df806019943111a0908ceeb0cfe8ecf1e7366d1f3e09",
+      "inputs/cases/high/printer_commands.csv": "7500e56b14f8ba2f13d5234aa53765ddc70d26b40569e53e955edde69381f10f",
+      "inputs/cases/high/charge_lookup.json": "e9ebf3f2c8ffd01fbd7c0a998d7135e35cdcba4952bfe513bfa1bb6ea2386d64"
+    }
+  },
+  "conclusion_policy": "No claim of fourth-order convergence for discontinuous switching, linear station interpolation or grid-resolved events"
+}

@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript when using this software or its results."
+title: "GPU-Accelerated Simulation and Inverse Design of Interacting Dynamical Systems"
+type: software
+license: Apache-2.0
+authors:
+  - family-names: Trapasso
+    given-names: Matteo
+version: 0.1.0
+date-released: 2026-11-11
+abstract: >-
+  GPU-accelerated simulation and constrained inverse design of interacting particle
+  systems, demonstrated in continuous inkjet raster development with numerical
+  benchmarks and experimental coordinate comparisons.
+preferred-citation:
+  type: unpublished
+  title: "GPU-Accelerated Simulation and Inverse Design of Interacting Dynamical Systems"
+  authors:
+    - family-names: Trapasso
+      given-names: Matteo
+  year: 2026
+
+repository-code: "https://github.com/blavingad/gpu-accelerated-interacting-dynamics"

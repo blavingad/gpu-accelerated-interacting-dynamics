@@ -1,0 +1,27 @@
+{
+  "case": "low",
+  "levels": [
+    "digit_9",
+    "three_glyphs_AMO",
+    "all_printable_ASCII"
+  ],
+  "epochs": 2,
+  "optimizer": "simultaneous shared-table residual correction using isolated finite-difference slopes; bounded steps and full-model line search",
+  "maximum_update_DAC": 12,
+  "seed": "isolated-flight bounded Newton solves from nominal per-row DAC ramp; no full-font optimized entries used",
+  "target": "ideal geometric rows, not observed paper data or full-table outputs",
+  "comparison_scope": "coverage-size intervention with equal refit passes; costs vary with context count; not an equal-total-budget optimizer comparison",
+  "history": "previous and current stroke interact; older history blank, no following emission",
+  "quality_policy": {
+    "version": "droplet-relative-132.9um-v2",
+    "droplet_diameter_um": 132.9,
+    "RMS_fraction": 0.5,
+    "maximum_error_fraction": 1.0,
+    "RMS_limit_um": 66.45,
+    "maximum_dot_error_limit_um": 132.9,
+    "minimum_gutter_deflection_um": 500.0,
+    "allow_missing": 0,
+    "allow_merged": 0,
+    "note": "User-defined quality acceptance; original stricter optimisation records remain preserved."
+  }
+}

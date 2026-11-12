@@ -1,0 +1,30 @@
+{
+  "counts": [
+    {
+      "case": "low",
+      "contexts": 644,
+      "current_only_contexts": 235,
+      "nonzero_previous_contexts": 409,
+      "fitted_keys": 540,
+      "full_address_capacity": 3312,
+      "history": "one preceding stroke emitted; older history blank; following stroke not emitted",
+      "guard_compensation_commands": false,
+      "consecutive_compensation_commands": false
+    },
+    {
+      "case": "high",
+      "contexts": 644,
+      "current_only_contexts": 235,
+      "nonzero_previous_contexts": 409,
+      "fitted_keys": 540,
+      "full_address_capacity": 3312,
+      "history": "one preceding stroke emitted; older history blank; following stroke not emitted",
+      "guard_compensation_commands": false,
+      "consecutive_compensation_commands": false
+    }
+  ],
+  "current_only_is_subset_of_previous_current_pool": true,
+  "exhaustive_scope": "declared nonblank current targets under stated font and finite history convention",
+  "unobserved_addresses": "outside characterized domain; do not claim optimized",
+  "force_window": "dependency address selection does not truncate physical force computation"
+}

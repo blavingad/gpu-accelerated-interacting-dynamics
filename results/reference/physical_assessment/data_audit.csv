@@ -1,0 +1,3 @@
+configuration,matched_dots,unique_strokes,repeated_measurement_id_present,raw_units,supplied_status,x_alias_max_difference_mm,y_alias_max_difference_mm,inherited_gutter_equal_simulator,inherited_flight_time_equal_simulator,image_pixel_calibration_supplied,measurement_uncertainty_supplied,exact_integer_DAC_flight_replayed,frequency_physics_native
+A,1725,256,False,mm; confirmed by supplier,independent measured positions; confirmed by supplier,0.0,0.0,False,False,False,False,True,True
+B,1725,256,False,mm; confirmed by supplier,independent measured positions; confirmed by supplier,0.0,0.0,True,True,False,False,True,True

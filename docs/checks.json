@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "unit_tests": 9,
+  "euler_reference_full_history_and_endpoint_parity": true,
+  "dynamic_input_batch_scalar_parity": true,
+  "all_three_numerical_studies_hash_verified": true,
+  "ablation_evaluations": 5152,
+  "integration_summary_rows": 14,
+  "integration_event_flag_disagreements": 0,
+  "manuscript_pages": 35,
+  "paper_build": "passed; no unresolved references or overfull boxes",
+  "manuscript_package_aggregate_evidence_included": true,
+  "manuscript_package_raw_industrial_inputs_excluded": true,
+  "experimental_repeated_A_to_Z_prints_per_raster": 10,
+  "experimental_coordinate_statistic": "Mean corresponding dot positions across ten image-derived measurements",
+  "individual_replicates_and_variance_not_supplied": true,
+  "metrology_uncertainty_not_supplied": true,
+  "publication_layout_cleanup": {
+    "shared_palette": "blue / teal; orange experimental coordinates; slate secondary elements",
+    "figure_sources_regenerated": 15,
+    "print_overview_height_capped": true,
+    "trajectory_legends_outside_axes": true,
+    "closeup_row_titles_and_labels_separated": true,
+    "text_outside_bottom_boundary": [],
+    "numerical_evidence_unchanged": true,
+    "table_caption_gap_pt": 10,
+    "table_row_stretch": 1.15,
+    "scatter_legend": "Valid coupled evaluations",
+    "per_glyph_comparison": "Grouped bars with zero baseline"
+  },
+  "current_experimental_assessment": "results/experimental",
+  "high_speed_measured_sha256": "f4a9e83379cb4efde5e72d46bcec03ad76ba52589d6de44ed8911031890aff8a",
+  "low_speed_measurements_unchanged": true,
+  "physical_predictions_refitted": false,
+  "experimental_ablation_rescored_from_frozen_predictions": true,
+  "experimental_coordinate_RMSE_um": {
+    "low": {
+      "horizontal": 20.96916620321643,
+      "deflection": 16.116815071999753
+    },
+    "high": {
+      "horizontal": 31.233995601570395,
+      "deflection": 21.578650685272745
+    }
+  },
+  "manuscript_scope_revision": {
+    "previous_pages": 41,
+    "current_pages": 35,
+    "novelty": "font/history coverage and shared controller realization integrated with simulation and deployment",
+    "confidential_laboratory_records": "outside released evidence; assessment limited to supplied coordinate means",
+    "unused_theory_removed": [
+      "risk-aware stochastic program",
+      "saltation sensitivities",
+      "information-theoretic dependency selection",
+      "unbenchmarked sequential guard-growth algorithm"
+    ],
+    "retained_appendix": [
+      "isolated timing initialization",
+      "shared-entry sensitivity assembly",
+      "conditional command quantization",
+      "metrics and printer export"
+    ],
+    "numerical_and_experimental_evidence_unchanged": true,
+    "citation_and_reference_checks": true,
+    "no_bottom_boundary_overflow": true,
+    "prior_work_positioning": "Established CIJ optimization and GPU particle simulation cited; contribution scoped to coverage/controller integration"
+  },
+  "digital_workflow": "From-scratch structure, charge, dependency and controller-export development; physical qualification retained"
+}

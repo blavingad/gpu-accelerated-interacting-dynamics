@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "representative_contexts_per_case": 4,
+  "continuous_methods": [
+    "velocity-first Euler",
+    "classical RK4"
+  ],
+  "common_event_policy": true,
+  "releases_frozen_across_steps": true,
+  "finest_solution_is_a_numerical_reference_not_exact_truth": true
+}

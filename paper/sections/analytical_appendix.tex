@@ -1,0 +1,54 @@
+\section{Scheduling and controller-realization details}
+\label{app:analysis}
+The following derivations explain the timing initialization and shared-command formulation used in the development workflow. They are conditional design relations, not global guarantees for the interacting hybrid model.
+
+\subsection{Isolated-flight timing initialization}
+Assume a fixed set of isolated trajectories, positive substrate speed $v_s$, and $N$ uniformly spaced firing slots $t_k=k/f$. Let
+\begin{equation}
+ \eta_i=\tau_i-\frac{Y_i^{\mathrm{lab}}}{v_s}.
+\end{equation}
+For an assignment $\pi:\{0,\ldots,N-1\}\to\{1,\ldots,N\}$, Eq.~\eqref{eq:paper} gives the paper coordinate as $-v_s(t_c+t_k+\eta_{\pi(k)})$. Removing one common column phase gives the centered timing cost
+\begin{equation}
+ L(\pi)=\sum_{k=0}^{N-1}
+ \left[t_k+\eta_{\pi(k)}-
+ \frac{1}{N}\left[\sum_{j=0}^{N-1}t_j+\sum_{i=1}^{N}\eta_i\right]\right]^2.
+\end{equation}
+The mean and the sums of squared slot times and offsets are invariant to permutation. Minimizing $L$ therefore reduces to minimizing $\sum_k t_k\eta_{\pi(k)}$.
+
+\begin{proposition}[Fixed-trajectory timing assignment]
+For the stated isolated trajectories and equally spaced slots, assigning $\eta_i$ in descending order to increasing firing times minimizes the centered squared paper-coordinate spread.
+\end{proposition}
+\begin{proof}
+For $t_a<t_b$ and $\eta_i>\eta_j$, placing $i$ before $j$ changes the uncentered squared timing cost relative to the reverse assignment by
+\begin{equation}
+ (t_a+\eta_i)^2+(t_b+\eta_j)^2
+ -(t_a+\eta_j)^2-(t_b+\eta_i)^2
+ =2(t_a-t_b)(\eta_i-\eta_j)\leq0.
+\end{equation}
+Removing inversions yields the stated ordering; the centered mean is unchanged.
+\end{proof}
+Interactions and history-dependent charging change both $\tau_i$ and $Y_i^{\mathrm{lab}}$. The ordering is consequently a screening seed, followed by coupled fitting and replay. It does not minimize all interacting objectives or the maximum center span by itself.
+
+\subsection{Shared-entry sensitivity assembly}
+For a fixed structure and context $c$, let $G_c$ gather the active controller entries from the shared vector $\vect\theta$ into its command waveform: $\vect u_c=G_c\vect\theta+\vect b_c$, where $\vect b_c$ contains fixed command offsets. The reported cases use zero nonprinting command offsets. The residual is
+\begin{equation}
+ \vect e_c(\vect\theta)=\Phi_c(G_c\vect\theta+\vect b_c)-\vect p_c^*,
+ \qquad J_c=\frac{\partial\vect e_c}{\partial\vect u_c}G_c.
+\end{equation}
+Stacking contexts gives the bounded local problem
+\begin{equation}
+ \min_{\Delta\vect\theta}
+ \sum_{c\in\mathcal C}\left\|W_c(J_c\Delta\vect\theta+\vect e_c)\right\|_2^2
+ +\lambda\|\Delta\vect\theta\|_2^2,
+ \qquad \vect l\leq\vect\theta+\Delta\vect\theta\leq\vect h.
+\end{equation}
+Contexts referencing the same address contribute to the same variable. This enforces one realizable entry instead of retaining incompatible pattern-specific commands. The flight and waveform response remains coupled even when $G_c$ is sparse. Finite-difference evaluations estimate the local response, and full replay evaluates each proposed step and its event status.
+
+\subsection{Command quantization}
+Within a neighborhood of fixed event topology, suppose the continuous output map $\Phi$ has Jacobian $J$ and second-derivative operator norm bounded by $H_\Phi$. Nearest-grid quantization with spacing $\delta$ satisfies $\|Q_\delta(\vect u)-\vect u\|_2\leq\sqrt{d}\,\delta/2$ for $d$ commands. Taylor's theorem then gives
+\begin{equation}
+ \|\Phi(Q_\delta(\vect u))-\Phi(\vect u)\|_2
+ \leq\|J\|_2\frac{\sqrt d\,\delta}{2}
+       +\frac{H_\Phi d\delta^2}{8}.
+\end{equation}
+The bound is conditional on smoothness and unchanged events. It is not used as a numerical certificate for the step-crossing solver. Integer waveform and flight replay directly assess the realized table, including changes in contact, collection and arrival bins.

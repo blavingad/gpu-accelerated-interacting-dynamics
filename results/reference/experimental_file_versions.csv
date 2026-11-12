@@ -1,0 +1,9 @@
+raster,version,path,sha256,dots,treatment
+d37g21_lr,v0,reports/paper_print_validation_v1/raw/d37g21_lr_supplied.csv,1651bdc03439464d2be18423b6331ffa4d7f9a4812bdb93b0f3c34880ecc692a,1725,supplied file version; not pooled as an independent repeated acquisition
+d37g21_lr,v1,reports/revised_print_inspection_v1/raw/d37g21_lr_revised_supplied.csv,8ca74f5332115003c024965dfeca384f178ee594f4586fa3e7f56eb9bcd279d6,1725,supplied file version; not pooled as an independent repeated acquisition
+d37g21_lr,v2,reports/revised_print_inspection_v2/raw/d37g21_lr_revised_supplied.csv,25e1bbf92e86c295507b11394b5cb1c7659cbe323ff7d25444e639a5595c6f2f,1725,supplied file version; not pooled as an independent repeated acquisition
+d37g21_lr,v3,reports/revised_print_inspection_v3/raw/d37g21_lr_revised_supplied.csv,e8f384afbfb78c1e42de816801205a316b8ba30b2bbbede81ca7f1c7efebba1e,1725,supplied file version; not pooled as an independent repeated acquisition
+d16g0_lr,v0,reports/paper_print_validation_v1/raw/d16g0_lr_supplied.csv,1c7228a80dac27b55d7f094cd610c2464c717e93d35e8088e76473deb65afd04,1725,supplied file version; not pooled as an independent repeated acquisition
+d16g0_lr,v1,reports/revised_print_inspection_v1/raw/d16g0_lr_revised_supplied.csv,4922a097cb225ebbd880a71e3d5f1c9ed263084788db214182ed14aa71b2bad1,1725,supplied file version; not pooled as an independent repeated acquisition
+d16g0_lr,v2,reports/revised_print_inspection_v2/raw/d16g0_lr_revised_supplied.csv,7b3c2b3b6c3a0030ae9a6692bf17b3006bd7caf36f595a08910df0ddb4f35414,1725,supplied file version; not pooled as an independent repeated acquisition
+d16g0_lr,v3,reports/revised_print_inspection_v3/raw/d16g0_lr_revised_supplied.csv,3b10aefbb5d1df930e8e98d5ea4885b52d4695a3148f432fd92910009bbc4ba2,1725,supplied file version; not pooled as an independent repeated acquisition

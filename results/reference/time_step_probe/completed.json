@@ -1,0 +1,29 @@
+{
+  "contexts": 4,
+  "scope": "two event-sensitive contexts and two reference contexts; unchanged commands; release steps re-quantized at each dt; finest is a numerical reference, not exact truth",
+  "timesteps_us": [
+    1.0,
+    0.5,
+    0.25
+  ],
+  "summary": [
+    {
+      "dt_us": 0.25,
+      "dots": 48,
+      "maximum_difference_to_finest_um": 0.0,
+      "RMS_difference_to_finest_um": 0.0
+    },
+    {
+      "dt_us": 0.5,
+      "dots": 48,
+      "maximum_difference_to_finest_um": 17.326831817626953,
+      "RMS_difference_to_finest_um": 4.867430047130181
+    },
+    {
+      "dt_us": 1.0,
+      "dots": 48,
+      "maximum_difference_to_finest_um": 19.521236419677734,
+      "RMS_difference_to_finest_um": 5.667851437273681
+    }
+  ]
+}

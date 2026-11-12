@@ -1,0 +1,65 @@
+{
+  "fingerprint": "9097cb2e175058c430186cb730bb67e5a01488545a4aa1b9fcd3d3d801dfffc3",
+  "declared_utc": "2026-11-11T09:42:05.228372+00:00",
+  "study": "fixed_command_flight_force_ablation_v1",
+  "cases": [
+    "low",
+    "high"
+  ],
+  "contexts_per_case": 644,
+  "variants": {
+    "full": {},
+    "no_coulomb": {
+      "coulomb_interaction_enabled": false
+    },
+    "no_wakes": {
+      "wake_initial_velocity_deficit_factor": 0.0
+    },
+    "neither": {
+      "coulomb_interaction_enabled": false,
+      "wake_initial_velocity_deficit_factor": 0.0
+    }
+  },
+  "integrator": "velocity-first Euler",
+  "timestep_s": 1e-06,
+  "commands": "Unchanged supplied printer integer lookup; no refitting",
+  "charging": "Complete unchanged waveform and induction, including nonprinting cycles",
+  "device": "gpu",
+  "batch": 64,
+  "precision": "float32 particle integration; float64 waveform preparation",
+  "sources": {
+    "src/vdcr/jax_solver.py": "c3ca8445c6c2b81c9ed724a07d3c3a6aaf76cf505404811f96923c49de549e0b",
+    "src/vdcr/config.py": "fc6569a1c98d594bebcd35aabe4c890a4557df815331bb0175ee5c7e79fb8bc2",
+    "src/vdcr/electric_field.py": "aa2c38e26cddb5d1d31869e37e58daf38897549bcea4b2853adf525a9a56f5b2",
+    "src/vdcr/charging.py": "568c9e17cfe997bf4780bdfc4900013c474aa0ec3f14ce5ff1d7f11b51e84df7",
+    "src/vdcr/charging_sequence.py": "a608ee3092e5b47d51a4bdbcbce898301ac25495a55f395145897da15d258e10",
+    "src/vdcr/charge_explorer.py": "31e9843959b6458c7e6c558c57ad7f41ad43b3155ffc2d876300dfc761215200",
+    "src/vdcr/framework_workload.py": "9192b4f7e93570066ce4269631e8c30c6b886dcac3282a1f76b1f3b50a5f6d76",
+    "src/vdcr/framework_campaign.py": "15ec534023fb1c4b80917a542a5a9edd2d99dbcbdbda7e5aa8a67f3001bff87e",
+    "workflows/_study_common.py": "b25dd7ce182ed2e9d9ed576704df05791a2fc78bd7fa60fd82f581e1e4ac4ffa",
+    "workflows/run_physics_ablation.py": "ab15b832d8993e7f8d83af4b82e3624fbfa27ea324115153cfa3ed1003ea179a"
+  },
+  "inputs": {
+    "low": {
+      "inputs/electric_field.npz": "4772e6c960e091cd1723e6b740db9776313b08c66b521f3a0e1483885d4c832f",
+      "inputs/quality_policy.json": "9ba516fa15087d141635f4f046007acc91d5a507b79f040c2ead7dd5c3f429e7",
+      "inputs/cases/low/physical_configuration.json": "a420c632af8baee3479a6a52dd44294f1ce51169f9579d3e1adb4ad6e351dfc4",
+      "inputs/cases/low/charge_parameters.json": "b10052ac78bb28d0b7e97fa0d965248c4dc8498ff782fe84c1a72b0b96672058",
+      "inputs/cases/low/printer_commands.csv": "6a7846fd91671057c36b8a23d3347a20f5b49ce46386f864363bc25e1d414553",
+      "inputs/cases/low/charge_lookup.json": "50937a48518ebd0aeffe213ddcde0b8a48527847cd4abacfc07d9696177f6022"
+    },
+    "high": {
+      "inputs/electric_field.npz": "4772e6c960e091cd1723e6b740db9776313b08c66b521f3a0e1483885d4c832f",
+      "inputs/quality_policy.json": "9ba516fa15087d141635f4f046007acc91d5a507b79f040c2ead7dd5c3f429e7",
+      "inputs/cases/high/physical_configuration.json": "e2e991627ad654dee5d60588026a7bcbad9041e7f1469a9ed3da20038b6322e1",
+      "inputs/cases/high/charge_parameters.json": "e4c351097cfe5a3d8197df806019943111a0908ceeb0cfe8ecf1e7366d1f3e09",
+      "inputs/cases/high/printer_commands.csv": "7500e56b14f8ba2f13d5234aa53765ddc70d26b40569e53e955edde69381f10f",
+      "inputs/cases/high/charge_lookup.json": "e9ebf3f2c8ffd01fbd7c0a998d7135e35cdcba4952bfe513bfa1bb6ea2386d64"
+    }
+  },
+  "measured_inputs": {
+    "low": "e8f384afbfb78c1e42de816801205a316b8ba30b2bbbede81ca7f1c7efebba1e",
+    "high": "3b10aefbb5d1df930e8e98d5ea4885b52d4695a3148f432fd92910009bbc4ba2"
+  },
+  "metrics": "Geometric error for finite lineage-mapped requested targets; missing/merged counts separately. Experimental RMSE only for identifiable landed singletons, with denominator reported."
+}

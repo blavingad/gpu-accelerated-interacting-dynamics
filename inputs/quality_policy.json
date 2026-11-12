@@ -1,0 +1,12 @@
+{
+  "version": "droplet-relative-132.9um-v2",
+  "droplet_diameter_um": 132.9,
+  "RMS_fraction": 0.5,
+  "maximum_error_fraction": 1.0,
+  "RMS_limit_um": 66.45,
+  "maximum_dot_error_limit_um": 132.9,
+  "minimum_gutter_deflection_um": 500.0,
+  "allow_missing": 0,
+  "allow_merged": 0,
+  "note": "User-defined quality acceptance; original stricter optimisation records remain preserved."
+}

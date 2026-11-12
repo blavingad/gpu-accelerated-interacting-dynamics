@@ -1,0 +1,11 @@
+{
+  "physical_unit": "individual glyph print; author-reported",
+  "glyphs_per_configuration": 26,
+  "configurations": 2,
+  "original_instrument_acquisition_ids_available": false,
+  "repeatability_of_same_glyph_established": false,
+  "uploaded_versions_pooled": false,
+  "final_primary_version": "v3",
+  "coordinate_errors": "raw coordinate differences; no per-glyph registration fitted",
+  "pool_relation": "Printed glyphs select ordered previous/current contexts from the declared font pool. Current-drop measurements are scored. Older history and following emissions remain outside the two-stroke reference."
+}

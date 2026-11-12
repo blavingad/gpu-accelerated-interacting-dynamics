@@ -1,0 +1,16 @@
+{
+  "experimental_assessment": "results/experimental",
+  "experimental_provenance_sha256": "9763aaaa6ca14c6d33cec2bedd8ed1ec2d526caf7108d1173c9d8c0583df4d85",
+  "numerical_freeze_sha256": "6799f69a19576da8d2ae3c72912f3e9fb0ff65e1df60a04ab2b49deb240e022a",
+  "cases": [
+    "low-speed",
+    "high-speed"
+  ],
+  "experimental_scope": "Image-derived corresponding dot coordinates averaged across ten repeated full A-Z prints per raster, as clarified by the data provider; additional raw laboratory records are confidential; replicate uncertainty is outside the released assessment",
+  "source_types": {
+    "experimental": "Measured deposited coordinates",
+    "numerical": "Fixed-command ablation and Euler/RK4 comparison",
+    "theoretical": "Analytical arguments separated in appendices"
+  },
+  "industrial_configuration_disclosure": "Repository release authorized by the author; simulation inputs distributed separately from the manuscript source ZIP"
+}

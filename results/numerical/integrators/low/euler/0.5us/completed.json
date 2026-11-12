@@ -1,0 +1,19 @@
+{
+  "case": "low",
+  "method": "euler",
+  "dt_us": 0.5,
+  "contexts": 4,
+  "prepare_s": 0.06615006644278765,
+  "compile_lowering_s": 0.9181545190513134,
+  "first_execution_s": 28.806823750026524,
+  "transfer_s": 0.0020705685019493103,
+  "particle_dtype": "float32",
+  "output_bytes": 175544,
+  "timing_scope": "Single synchronized execution after explicit compilation; not a warmed throughput benchmark",
+  "native_steps_executed": [
+    8513,
+    8648,
+    8648,
+    8631
+  ]
+}

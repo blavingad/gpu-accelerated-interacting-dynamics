@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "unit_tests": 6,
+  "solver_reference_parity": {
+    "passed": true,
+    "reference_full_history_parity": true,
+    "endpoint_landing_lineage_and_gutter_parity": true,
+    "landing_time_parity": true,
+    "dynamic_charges_and_masks_tested": true,
+    "single_compilation_for_dynamic_inputs": true,
+    "batched_scalar_parity": true,
+    "runtime_s": 2.921811103820801
+  },
+  "analytic_verification": {
+    "python": "3.12.3",
+    "jax": "0.11.1",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "device": "cpu"
+  },
+  "native_smoke_contexts_per_case": 3,
+  "native_smoke_error_tolerance_um": 0.05,
+  "structure_screen_budget_check": {
+    "status": "complete",
+    "physical_evaluations": 1,
+    "refinements": [],
+    "global_optimum_proved": false
+  },
+  "physical_coordinates_reproduce_frozen_residuals": true,
+  "figures_regenerated": true,
+  "paper_built": true,
+  "relocation_check_passed": true,
+  "editable_package_build": "passed without network; import check uses already-installed tested runtime dependencies",
+  "editable_import_with_tested_dependencies": "passed",
+  "kernel_fixture_workflow": "passed in extracted repository",
+  "structure_refine_zero_respected": true
+}

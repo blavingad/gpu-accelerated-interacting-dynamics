@@ -1,0 +1,13 @@
+{
+  "frozen_utc": "2026-11-11T10:14:19.654398+00:00",
+  "files": {
+    "benchmark_low_cpu_euler_endpoints_b64.json": "bc57c93c6c553e1f96d1369c1e09347b51db77b0c68b09188514332d8b30d109",
+    "benchmark_low_gpu_euler_endpoints_b64.json": "72aa56756b28c7186c72025489384d28ba5b6c7d80dfaf913f33b8c13e84019e",
+    "benchmark_synthetic_cpu_euler_endpoints_b64.json": "29367040a82d317e2395291e4745b9cf1bd40f787b3bda0fdab1016d83101ab8",
+    "benchmark_synthetic_gpu_euler_endpoints_b64.json": "d8c9762c9170598cb2e52ff51a2268c5f0a059b512f3fdcb3f70a9efddf57f51",
+    "consolidated.csv": "a110b9945344951887ebe8436039547456a8f97c55533f4684251b279d228029",
+    "environment.json": "c9e99b6ca90871f2bc089fd293d3328367186e0719c5e7fb505544b89644266c",
+    "synthetic_uniform_field.npz": "e0f980c8e91e406a67445ec970f3be656e4a77d826df2eba99762c966b2c4446"
+  },
+  "interpretation": "Numerical evidence frozen before manuscript conclusions are revised"
+}
